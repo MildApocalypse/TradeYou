@@ -1,5 +1,5 @@
 var pg=require('pg').native;
-var database = "postgress://postgres:password@localhost:5432/SWEN303";
+var database = "postgress://minajosh:password@depot:5432/minajosh";
 
 pg.connect(database, function(err,client,done){
   if(err){
