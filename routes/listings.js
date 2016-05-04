@@ -12,7 +12,12 @@ router.get('/', function(req,res,next){
    	 return;
   		}
   	console.log('Connected to database');
-  	client.query("SELECT * FROM Users;", function(error,result){
+  	//add a user 
+  	//client.query("INSERT INTO Users (Username, Realname, Password) VALUES ('test', 'josh', 'pass');", function(error,result){
+    //Check the data in table
+    //client.query("SELECT * FROM Users;", function(error,result){
+    //delete item 
+    //client.query("DELETE FROM Users WHERE username=('test')", function(error,result){
     done();
     if(error){
       console.error('Failed to execute query');
