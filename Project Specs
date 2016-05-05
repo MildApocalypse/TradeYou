@@ -1,0 +1,17 @@
+ 
+Specs: 
+-You need to be able to search (Browse/Catagorically).
+-List an item.
+-Purchase an item (Buyout/Auction).
+-Have an account
+  -Checking listings
+  -Watchlist
+  -History of purchases
+  -Review/feedback
+  
+  
+Database: Josh
+
+Design: Larry/Steve
+
+Backend: Larry/Steve/Pas
