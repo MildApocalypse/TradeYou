@@ -4,5 +4,14 @@ block content
   h1= title
   p Welcome to #{title}
   .container
-    li
-      a(href="/listings")"database test"
+    form(name='login', action='/listings', method='get', accept-charset='utf-8')
+        ul
+
+          label(for='usermail') File Delete
+          input#deleter(type='deleter', name='deleter', placeholder='File to Delete', required='')
+          input(type='submit', value='Delete')
+          label(for='usermail') Email
+          input#email(type='email', name='usermail', placeholder='yourname@email.com', required='')
+          label(for='password') Password
+          input#password(type='password', name='password', placeholder='password', required='')
+          input(type='submit', value='Login')
