@@ -1,5 +1,5 @@
 var pg=require('pg').native;
-var database = "postgress://minajosh:password@depot:5432/minajosh";
+var database = "postgress://bucklawr:password@depot:5432/minajosh";
 var express = require('express');
 var router = express.Router();
 
