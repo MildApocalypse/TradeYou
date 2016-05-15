@@ -1,0 +1,15 @@
+//Created by bucklawr on 14/05/16.
+
+extends ../node_modules/jade-bootstrap/_bootstrap
+
+append style
+    link(rel = "stylesheet", href = "/stylesheets/create-itemStyle.css")
+
+block body
+    .container
+        h1 Create new Item
+
+        div(id="addImage", style={background: '#6F6F6F', height: '500px', width: '500px'})
+            div(id="placeholder", style={color: '#b7b6b6'})
+                +icon ("plus")
+                p Add Image
