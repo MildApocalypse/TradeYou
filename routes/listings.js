@@ -1,16 +1,18 @@
 var pg=require('pg').native;
-var database = "postgress://bucklawr:password@depot:5432/minajosh";
+//var conString = "postgress://minajosh:password@depot:5432/minajosh";
+var database = "postgres://bahilmyqemykri:iKowEPn0umVbHXossXNsu_abmX@ec2-54-235-119-42.compute-1.amazonaws.com:5432/d6ap3ia4rlhq77";
+// var client = new pg.Client(conString);
+// client.connect();
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req,res,next) {
-	//res.send("listing site is working");
+router.get('/', function(req,res) {
 	var username = req.query.usermail;
 	var password = req.query.password;
 	var toDelete = req.query.deleter;
 	console.log(username);
 	console.log(password);
-	// var realname
+	var realname
 	pg.connect(database, function (err, client, done) {
 		if (err) {
 			console.error('Could not connect to the database');
@@ -33,7 +35,8 @@ router.get('/', function(req,res,next) {
 			console.log(result);
 		});
 	});
-    res.render('login_welcome', {name: "Josh"});
+	res.render('login_welcome', {name: "Josh"});
+
 });
 
 
