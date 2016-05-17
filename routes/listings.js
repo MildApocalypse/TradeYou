@@ -20,7 +20,7 @@ router.get('/', function(req,res) {
 		}
 		console.log('Connected to database');
 		//add a user
-		client.query("INSERT INTO Users (Username, Realname, Password) VALUES ('" + username + "', 'josh', '" + password + "');", function (error, result) {
+		client.query("INSERT INTO Users (Username, Password) VALUES ('" + username + "','" + password + "');", function (error, result) {
 			//Check the data in table
 			//client.query("SELECT * FROM Users;", function(error,result){
 			//delete item
