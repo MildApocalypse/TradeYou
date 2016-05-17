@@ -1,0 +1,36 @@
+
+
+h4{
+    margin-left: 20px;
+    margin-top: 20px;
+    color: #231F22;
+}
+
+.btn.btn-default{
+    margin-left: 50px;
+    background-color: #231F22;
+    color: #6F6F6F;
+    border: 0px;
+}
+
+div.container{
+    background-color: #6F6F6F;
+    height: 100vh;
+    padding-top: 25px;
+}
+
+.container{
+    background-color: #231F22;
+}
+
+header {
+    padding: 20px 0;
+}
+
+.form-control.input-sm.chat-input{
+    margin-top: 20px;
+}
+
+.form-control.input-sm.chat-input2{
+    margin-top: 0px;
+}
