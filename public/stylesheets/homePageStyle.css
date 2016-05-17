@@ -1,0 +1,53 @@
+body{
+    background-color: #231F22;
+}
+
+.body{
+    height: 100vh;
+}
+
+.container{
+    background-color: #231F22;
+}
+
+h4.col-sm-10{
+    margin-bottom: 0px;
+    color: #6F6F6F;
+    float: left;
+    padding-left: 0px;
+    padding-right: 0px;
+    /*font-family: ;*/
+}
+
+h1.col-sm-2{
+    padding-right: 0px;
+}
+
+.col-sm-1{
+    padding-right: 0px;
+}
+
+section.container{
+    height: 100vh;
+    background-color: #6F6F6F;
+}
+
+header {
+    padding: 20px 0;
+}
+
+header h1 {
+    font-weight: 700;
+    margin: 0;
+    color: #231F22;
+    padding-right: 0px;
+}
+
+.btn.btn-default{
+    background-color: #6F6F6F;
+    color: #231F22;
+    border: 0px;
+    float: right;
+    margin-top: 12px;
+    margin-right: 20px;
+}
