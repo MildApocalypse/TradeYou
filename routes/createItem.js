@@ -8,6 +8,9 @@ var router = express.Router();
 
 router.get('/', function (req,res) {
     var title = req.query.title;
+    var price = req.query.price;
+    var tag = req.query.description;
+    //var owner = req.query.....
     res.render('createItem');
     pg.connect(database, function(err, client, done) {
         if (err) {
@@ -16,7 +19,7 @@ router.get('/', function (req,res) {
             return;
         }
         console.log("Connected to database");
-        client.query("INSERT INTO Stock (Title) VALUES ('" + title + "');", function (err, result) {
+        client.query("INSERT INTO Listings (Title, Price, Tags) VALUES ('" + title + "','"+price+"','"+tag+"');", function (err, result) {
             done();
             if (err) {
                 console.error("Failed to post item");

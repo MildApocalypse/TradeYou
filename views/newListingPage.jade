@@ -9,7 +9,8 @@ html(lang='en')
         link(rel='stylesheet', href='../stylesheets/create-itemStyle.css')
         link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
     body
-        header.container
+        header
+        .container
             .row
                 a(href='homePage.html')
                     img.col-sm-3(src='Logo%20Placehold.png', alt='Globe', height='60px', width='=100px')
@@ -30,6 +31,7 @@ html(lang='en')
                     input.form-control(type='number', name='price', placeholder='Cost of the Item.', aria-describedby='sizing-addon1')
                 br
                 .input-group.input-group-lg
+                    //-Change this to tags with a drop down list. For now just put 3 tags. Books, Toys and etc
                     span#sizing-addon1.input-group-addon Description
                     input.form-control(type='text', name='description', placeholder='Enter a Description', aria-describedby='sizing-addon1')
                 br
