@@ -10,8 +10,8 @@ head
 block body
   .dropdownlist
     +navbar(title,"dropdown_menu")
-        +nav_item("homePage.jade") Home
-        +nav_item("browse.jade") Browse
+        +nav_item("/index") Home
+        +nav_item("/browse") Browse
         +nav_item_dropdown("#")(label="Catagories")
             +nav_item("#") Cars
             +nav_item("#") Books
@@ -24,7 +24,7 @@ block body
             li(id='login')
                 a(id='login-trigger', href='#', class='active') Login
                 div(id='login-content')
-                    form(action='homePage.jade')
+                    form(action="/loginWelcome" method="get")
                         fieldset(id='inputs')
                             input(id='username', type='email' name='Email' placeholder='Your email' required)
                             input(id='password', type='password' name='password' placeholder='Your password' required)
@@ -36,7 +36,7 @@ block body
   .container
       h1 TradeYou
       +carousel("Carousel ID_2",[
-	{image:"images/slide1.jpg"},
-	{image:"images/slide5.jpg"}
-])
+	   {image:"images/slide1.jpg"},
+	   {image:"images/slide5.jpg"}
+        ])
 

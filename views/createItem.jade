@@ -3,45 +3,55 @@ extends ../node_modules/jade-bootstrap/_bootstrap
 append styles
     link(rel = "stylesheet", href = "/stylesheets/create-itemStyle.css")
 
+head
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js")
+
 block body
+    .dropdownlist
+        +navbar("TradeYou","dropdown_menu")
+            +nav_item("/loginWelcome") Home
+            +nav_item("/browse") Browse
+            +nav_item_dropdown("#")(label="Sell")
+                +nav_item("/createItem") Create Listing
+                +nav_item("#") Current Listings
+            +nav_item_dropdown("#")(label="Catagories")
+                +nav_item("#") Cars
+                +nav_item("#") Books
+
     .container
-        h1 Create new Item
+        h1.create Create new Item
+            div(id="addImage")
+                div(id="placeholder", style={})
+                    +icon ("plus")
+                    p Add Image
 
-        div(id="addImage")
-            div(id="placeholder", style={})
-                +icon ("plus")
-                p Add Image
-
- 
-           form(name='description', action='/createItem', method='get')
-            div(class='input-group input-group-lg')
-                span(class='input-group-addon' id ='sizing-addon1') Title
-                input(type='text', id='titleInput' name='Title', class='form-control',
-                Placeholder='Please type in a name for your item here.', aria-describedby='sizing-addon1')
-                br
-            div(class='input-group input-group-lg')
-                span(class='input-group-addon' id ='sizing-addon1') Price
-                input(type='text', id='price' name='price', class='form-control',
-                Placeholder='Please type in the price of your item here.', aria-describedby='sizing-addon1')
-                br
-            div(class='input-group input-group-lg')
-                span(class='input-group-addon' id ='sizing-addon1') Description   
-                input(type='text', id='descriptionz' name='descriptionz', class='form-control',
-                Placeholder='Please type a short description of your item here.', aria-describedby='sizing-addon1')
-                br
-                //tags
-            .btn-group(data-toggle='buttons')
-              label.btn.btn-primary
-               input(type='radio',name='tag',autocomplete='off',value='books')
-               | Books
-              label.btn.btn-primary
-               input(type='radio',name='tag',autocomplete='off',value='toys')
-               | Toys	
-              label.btn.btn-primary
-               input(type='radio',name='tag',autocomplete='off',value='ducks')
-               | Ducks
             br
-            input(type='submit' class='btn btn-default', value='Done')
-
-
-
+            br
+            form(name='description', action='/createItem', method='get')
+                div(class='input-group input-group-lg')
+                    span(class='input-group-addon' id ='sizing-addon1') Title
+                    input(type='text', id='titleInput' name='Title', class='form-control',
+                    Placeholder='Please type in a name for your item here.', aria-describedby='sizing-addon1')
+                    br
+                div(class='input-group input-group-lg')
+                    span(class='input-group-addon' id ='sizing-addon1') Price
+                    input(type='text', id='price' name='price', class='form-control',
+                    Placeholder='Please type in the price of your item here.', aria-describedby='sizing-addon1')
+                    br
+                div(class='input-group input-group-lg')
+                    span(class='input-group-addon' id ='sizing-addon1') Description   
+                    input(type='text', id='descriptionz' name='descriptionz', class='form-control',
+                    Placeholder='Please type a short description of your item here.', aria-describedby='sizing-addon1')
+                    br
+                .btn-group(data-toggle='buttons')
+                    label.btn.btn-primary
+                        input(type='radio',name='tag',autocomplete='off',value='books')
+                        | Books
+                    label.btn.btn-primary
+                        input(type='radio',name='tag',autocomplete='off',value='toys')
+                        | Toys   
+                    label.btn.btn-primary
+                        input(type='radio',name='tag',autocomplete='off',value='ducks')
+                        | Ducks
+                br
+                input(type='submit' class='btn btn-default', value='Done')

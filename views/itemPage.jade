@@ -1,7 +1,7 @@
-//Created by bucklawr on 14/05/16.
+//
+   Created by steve on 21/05/2016.
 
 extends ../node_modules/jade-bootstrap/_bootstrap
-
 
 append styles
     link(rel = "stylesheet", href = "/stylesheets/indexStyle.css")
@@ -22,8 +22,3 @@ block body
                 +nav_item("#") Cars
                 +nav_item("#") Books
                 +nav_item("#") Electronics
-    .container
-        ul
-            each val in Array
-                li      
-                    p These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}   
