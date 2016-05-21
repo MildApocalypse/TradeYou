@@ -19,8 +19,8 @@ block body
             +nav_divider
             +nav_header Specials
             +nav_item("#") Daily Deals
-            +nav_item("#") Clearance
-        ul
+            +nav_item("#") Clearance  
+        +nav_item_dropdown("#")(label="Login")
             li(id='login')
                 a(id='login-trigger', href='#', class='active') Login
                 div(id='login-content')
@@ -30,6 +30,13 @@ block body
                             input(id='password', type='password' name='password' placeholder='Your password' required)
                         fieldset(id='actions')
                             input(type='submit', id='submit', value='Login')
+        
+
+        
   .container
       h1 TradeYou
+      +carousel("Carousel ID_2",[
+	{image:"images/slide1.jpg"},
+	{image:"images/slide5.jpg"}
+])
 
