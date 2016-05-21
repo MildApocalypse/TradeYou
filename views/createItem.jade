@@ -3,27 +3,49 @@ extends ../node_modules/jade-bootstrap/_bootstrap
 append styles
     link(rel = "stylesheet", href = "/stylesheets/create-itemStyle.css")
 
+head
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js")
+
 block body
-    .container
-        h1 Create new Item
+    .dropdownlist
+        +navbar("TradeYou","dropdown_menu")
+            +nav_item("/loginWelcome") Home
+            +nav_item("/browse") Browse
+            +nav_item_dropdown("#")(label="Sell")
+                +nav_item("/createItem") Create Listing
+                +nav_item("#") Current Listings
+            +nav_item_dropdown("#")(label="Catagories")
+                +nav_item("#") Cars
+                +nav_item("#") Books
 
-        div(id="addImage")
-            div(id="placeholder", style={})
-                +icon ("plus")
-                p Add Image
-        br
-        input(id="fileBrowser" type="file" name="filename" accept="image/gif, image/jpeg, image/png")
+        .container
+            h1.create Create new Item
 
-        br
-        form(name='description', action='/createItem/*', method='get')
-            div(class='input-group input-group-lg')
-                span(class='input-group-addon' id ='sizing-addon1') Title
-                input(type='text', id='titleInput' name='Title', class='form-control',
-                Placeholder='Please type in a title for your item here.', aria-describedby='sizing-addon1')
+            div(id="addImage")
+                div(id="placeholder", style={})
+                    +icon ("plus")
+                    p Add Image
+
             br
             br
-            br
-            input(type='submit' class='btn btn-default', value='Done')
+            form(name='description', action='/createItem', method='get')
+                div(class='input-group input-group-lg')
+                    span(class='input-group-addon' id ='sizing-addon1') Item Name
+                    input(type='text', id='titleInput' name='Title', class='form-control',
+                    Placeholder='Please type in a title for your item here.', aria-describedby='sizing-addon1')
+                br
+                br
+                div(class='input-group input-group-lg')
+                    span(class='input-group-addon' id ='sizing-addon1') Price
+                    input(type='text', id='titleInput' name='Cost', class='form-control',
+                    Placeholder='Price of the item.', aria-describedby='sizing-addon1')
+                br
+                br
+                div(class='input-group input-group-lg')
+                    span(class='input-group-addon' id ='sizing-addon1') Description
+                    input(type='text', id='titleInput' name='Title', class='form-control',
+                    Placeholder='Enter a short description.', aria-describedby='sizing-addon1')
 
-
-
+                br
+                br
+                input(type='submit' class='btn btn-default', value='Done')

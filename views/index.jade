@@ -10,8 +10,8 @@ head
 block body
   .dropdownlist
     +navbar(title,"dropdown_menu")
-        +nav_item("homePage.jade") Home
-        +nav_item("browse.jade") Browse
+        +nav_item("/index") Home
+        +nav_item("/browse") Browse
         +nav_item_dropdown("#")(label="Catagories")
             +nav_item("#") Cars
             +nav_item("#") Books
