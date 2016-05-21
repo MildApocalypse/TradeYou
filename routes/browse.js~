@@ -24,7 +24,7 @@ router.get('/', function(req,res,next) {
 			for (i =0; i < result.rows.length; i++){
 			listings.push(result.rows[i]);			
 			}
-			for (i =0; i < result.rows.length; i++){
+			for (i =0; i < result.rows.length-1; i++){
 			console.log(listings[i]);
 			}
     		res.render('browse', {

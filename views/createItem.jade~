@@ -26,7 +26,7 @@ block body
                 br
             div(class='input-group input-group-lg')
                 span(class='input-group-addon' id ='sizing-addon1') Description   
-                input(type='text', id='descriptionz' name='descriptionz', class='form-control',
+                input(type='text', id='description' name='description', class='form-control',
                 Placeholder='Please type a short description of your item here.', aria-describedby='sizing-addon1')
                 br
                 //tags

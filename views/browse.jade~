@@ -4,8 +4,7 @@ extends ../node_modules/jade-bootstrap/_bootstrap
 
 block body
 	.container
-		ul
 			each val in Array
 				li		
-					p These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}	
+					These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}	
 				
