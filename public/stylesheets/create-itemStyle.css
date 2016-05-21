@@ -32,3 +32,8 @@ h1 {
     background-color: #B7B6B6;
 }
 
+#fileBrowser{
+    margin-right: inherit;
+    color: #B7B6B6
+}
+

@@ -11,9 +11,11 @@ block body
             div(id="placeholder", style={})
                 +icon ("plus")
                 p Add Image
+        br
+        input(id="fileBrowser" type="file" name="filename" accept="image/gif, image/jpeg, image/png")
 
         br
-        form(name='description', action='/createItem', method='get')
+        form(name='description', action='/createItem/*', method='get')
             div(class='input-group input-group-lg')
                 span(class='input-group-addon' id ='sizing-addon1') Title
                 input(type='text', id='titleInput' name='Title', class='form-control',
