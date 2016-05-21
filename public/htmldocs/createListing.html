@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Create Listing</title>
+
+    <link rel="stylesheet" href="../stylesheets/create-itemStyle.css"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+</head>
+<body>
+
+    <header class="container">
+        <div class="row">
+            <a href="homePage.html">
+                <img class="col-sm-3" src="Logo%20Placehold.png" alt="Globe" height="60px" width="=100px">
+            </a>
+
+        </div>
+    </header>
+
+
+    <div class="container">
+        <h1 class="newItem">Create new Item</h1>
+        <div id="addImage" style=" ; height: 500px  ;width: 500px">
+            <div id="placeholder" style="color:#b7b6b6">
+                <!-- +icon ("plus")-->
+                <p class="imageText">Add Image</p>
+            </div>
+        </div><br/>
+        <form name="description" action="/createItem" method="get">
+            <div class="input-group input-group-lg"><span id="sizing-addon1" class="input-group-addon">Title</span>
+                <input type="text" name="Title" Placeholder="Please type in a title for your item here." aria-describedby="sizing-addon1" class="form-control"/>
+            </div><br/>
+            <div class="input-group input-group-lg"><span id="sizing-addon1" class="input-group-addon">Price</span>
+                <input type="number" name="price" Placeholder="Cost of the Item." aria-describedby="sizing-addon1" class="form-control"/>
+            </div><br/>
+            <div class="input-group input-group-lg"><span id="sizing-addon1" class="input-group-addon">Description</span>
+                <input type="text" name="description" Placeholder="Enter a Description" aria-describedby="sizing-addon1" class="form-control"/>
+            </div><br/>
+            <input type="submit" value="Done" class="btn btn-default"/>
+        </form>
+    </div>
+
+</body>
+</html>

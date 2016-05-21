@@ -1,0 +1,28 @@
+ 
+Specs: 
+-You need to be able to search (Browse/Catagorically).
+-List an item.
+-Purchase an item (Buyout/Auction).
+-Have an account
+  -Checking listings
+  -Watchlist
+  -History of purchases
+  -Review/feedback
+  
+  
+Database: Josh
+
+Design: Larry/Steve
+
+Backend: Larry/Steve/Pas
+
+
+
+COLOUR SCHEME
+    Main background and text on light background:   231F22
+    Toolbars and right side foreground elements:    6F6F6F
+    Left side foreground elements:                  4F4F4F
+    Text on dark background:                        B7B6B6
+
+CONNECTION STRING
+    postgres://bahilmyqemykri:iKowEPn0umVbHXossXNsu_abmX@ec2-54-235-119-42.compute-1.amazonaws.com:5432/d6ap3ia4rlhq77

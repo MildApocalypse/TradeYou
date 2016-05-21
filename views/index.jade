@@ -1,0 +1,42 @@
+extends ../node_modules/jade-bootstrap/_bootstrap
+
+append styles
+    link(rel = "stylesheet", href = "/stylesheets/indexStyle.css")
+
+head
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js")
+
+
+block body
+  .dropdownlist
+    +navbar(title,"dropdown_menu")
+        +nav_item("homePage.jade") Home
+        +nav_item("browse.jade") Browse
+        +nav_item_dropdown("#")(label="Catagories")
+            +nav_item("#") Cars
+            +nav_item("#") Books
+            +nav_item("#") Electronics
+            +nav_divider
+            +nav_header Specials
+            +nav_item("#") Daily Deals
+            +nav_item("#") Clearance  
+        +nav_item_dropdown("#")(label="Login")
+            li(id='login')
+                a(id='login-trigger', href='#', class='active') Login
+                div(id='login-content')
+                    form(action='homePage.jade')
+                        fieldset(id='inputs')
+                            input(id='username', type='email' name='Email' placeholder='Your email' required)
+                            input(id='password', type='password' name='password' placeholder='Your password' required)
+                        fieldset(id='actions')
+                            input(type='submit', id='submit', value='Login')
+        
+
+        
+  .container
+      h1 TradeYou
+      +carousel("Carousel ID_2",[
+	{image:"images/slide1.jpg"},
+	{image:"images/slide5.jpg"}
+])
+

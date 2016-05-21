@@ -1,0 +1,30 @@
+//
+   Created by steve on 17/05/2016.
+
+extends ../node_modules/jade-bootstrap/_bootstrap
+
+append styles
+    link(rel = "stylesheet", href = "/stylesheets/indexStyle.css")
+
+head
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js")
+
+
+block body
+    .dropdownlist
+        +navbar(title,"dropdown_menu")
+            +nav_item("homePage.jade") Home
+            +nav_item("browse.jade") Browse
+            +nav_item_dropdown("#")(label="Sell")
+                +nav_item("createItem.jade") Create Listing
+                +nav_item("#") Current Listings
+            +nav_item_dropdown("#")(label="Catagories")
+                +nav_item("#") Cars
+                +nav_item("#") Books
+                +nav_item("#") Electronics
+                +nav_divider
+                +nav_header Specials
+                +nav_item("#") Daily Deals
+                +nav_item("#") Clearance
+    .container
+        h1 TradeYou

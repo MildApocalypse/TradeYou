@@ -1,0 +1,16 @@
+// Created by bucklawr on 14/05/16.
+extends ../node_modules/jade-bootstrap/_bootstrap
+
+block body
+    .container
+        h1 Welcome, #{name}
+        a(href="createItem")
+            button(type="button", class="btn btn-default")
+                | Make new listing
+
+        br
+        br
+        br
+
+        p1 Current listings
+        textarea(name = "txtEdit", style = "height:400px; width:100%", id = "editBox")
