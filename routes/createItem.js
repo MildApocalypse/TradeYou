@@ -10,39 +10,17 @@ var upload = multer({ dest: 'upload/' })
 var fs = require('fs');
 
 router.get('/', function (req,res) {
-	 var imageLink = "hey";
-    var title = req.query.Title;
-    var price = req.query.price;
-    var descriptionz = req.query.descriptionz;
-    var tag = req.query.tag;
-    var integer = 1;
-    //console.log(descriptionz);
     res.render('createItem');
-    pg.connect(database, function(err, client, done) {
-        if (err) {
-            console.error('Could not connect to database');
-            console.error(err);
-            return;
-        }
-        console.log("Connected to database");
-        client.query("INSERT INTO Listing (Uid, imagePath, itemName, Price, Description, Tag) VALUES (" + integer + ",'"+imageLink+"','"+title+"',"+price+",'"+descriptionz+"','"+tag+"');", function (err, result) {
-            done();
-            if (err) {
-                console.error("Failed to post item");
-                console.error(err);
-                return;
-            }
-            console.log(result);
-        });
-    });
 });
 
-var upload = multer({ dest : 'upload/'});
-router.post('/*', upload.single('filebrowser'), function(req,res){
+router.post('/*', multer({ dest : './uploads/'}).single('filename'), function(req,res){
+
+    console.log(req.body);
+    console.log(req.file.path);
 
     var tmp_path = req.file.path;
     var newfilename = path.basename(tmp_path)+path.extname(req.file.originalname);
-    var target_path = './src/assets/img/products/' + newfilename;
+    var target_path = './images/' + newfilename;
 
     var src = fs.createReadStream(tmp_path);
     var dest = fs.createWriteStream(target_path);

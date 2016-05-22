@@ -7,7 +7,6 @@ h1 {
 }
 .container{
     text-align: center;
-    align-items: center;
 }
 #addImage {
      background: #6F6F6F;
@@ -20,7 +19,6 @@ h1 {
     padding-top: 45%;
     text-align: center;
     color: #B7B6B6;
-    align-self: center;
 }
 
 #titleInput {
@@ -33,7 +31,6 @@ h1 {
 }
 
 #fileBrowser{
-    margin-right: inherit;
     color: #B7B6B6
 }
 
