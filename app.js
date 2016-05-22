@@ -11,6 +11,8 @@ var loginWelcome = require('./routes/loginWelcome');
 var createItem = require('./routes/createItem');
 var browse = require('./routes/browse');
 var buy = require('./routes/buy');
+var itemPage = require('./routes/itemPage');
+
 
 var app = express();
 
@@ -33,7 +35,7 @@ app.use('/loginWelcome', loginWelcome);
 app.use('/createItem', createItem);
 app.use('/browse', browse);
 app.use('/buy', buy);
-
+app.use('/itemPage', itemPage);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
