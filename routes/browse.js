@@ -6,6 +6,7 @@ var router = express.Router();
 router.get('/', function(req,res,next) {
 	//res.send("listing site is working");
 	var listings = [];
+	var userid='1';
 	pg.defaults.ssl = true; //Uncomment this if you cannot connect to browse
 	pg.connect(database, function (err, client, done) {
 		if (err) {
@@ -25,13 +26,15 @@ router.get('/', function(req,res,next) {
 			for (i =0; i < result.rows.length; i++){
 			listings.push(result.rows[i]);			
 			}
-			for (i =0; i < result.rows.length; i++){
-			console.log(listings[i]);
-			}
+
+			// for (i =0; i < result.rows.length; i++){
+			// console.log(listings[i]);
+			// }
+
     		res.render('browse', {
 
-    			Array:listings
-
+    			Arrays:listings,
+    			currentUser:userid
     			
     		});
 		});

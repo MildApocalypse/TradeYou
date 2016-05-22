@@ -24,8 +24,12 @@ block body
                 +nav_item("#") Electronics
     .container
         ul
-            each val in Array
-                li      
-                    p   These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag} #{val.sid}
-                        button.btn.btn-default(type='button', onclick="location.href='/buy?filr=#{val.sid}'") Buy
-                    
+            each val in Arrays
+                if val.uid == currentUser
+                    li      
+                        p   These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
+                            button.btn.btn-default(type='button', onclick="location.href='/cancel?filr=#{val.sid}'") Cancel
+                else 
+                    li      
+                        p   These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
+                            button.btn.btn-default(type='button', onclick="location.href='/buy?filr=#{val.sid}'") Buy
