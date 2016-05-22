@@ -10,22 +10,20 @@ var upload = multer({ dest: 'upload/' })
 var fs = require('fs');
 
 router.get('/', function (req,res) {
-    res.render('createItem');
+    res.render('createItem', {imagePlaced: false});
 });
 
 router.post('/*', multer({ dest : './uploads/'}).single('filename'), function(req,res){
 
-    console.log(req.body);
-    console.log(req.file.path);
-
     var tmp_path = req.file.path;
-    var newfilename = path.basename(tmp_path)+path.extname(req.file.originalname);
-    var target_path = './images/' + newfilename;
+    var target_path = './public/images/' + req.file.originalname;
 
     var src = fs.createReadStream(tmp_path);
     var dest = fs.createWriteStream(target_path);
     src.pipe(dest);
-    src.on('end', function() { res.json({filename:newfilename}); });
+    console.log("/images/" + req.file.originalname);
+    src.on('end', function() { res.render('createItem', {imagePlaced: true, im: "/images/"
+                                + req.file.originalname}) });
     src.on('error', function(err) { res.sendStatus(500); });
 })
 
