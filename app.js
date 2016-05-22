@@ -12,6 +12,7 @@ var createItem = require('./routes/createItem');
 var browse = require('./routes/browse');
 var buy = require('./routes/buy');
 var cancel = require('./routes/cancel');
+var itemPage = require('./routes/itemPage');
 
 var app = express();
 
@@ -26,6 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public',express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
@@ -34,6 +36,8 @@ app.use('/createItem', createItem);
 app.use('/browse', browse);
 app.use('/buy', buy);
 app.use('/cancel', cancel);
+app.use('/itemPage', itemPage);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

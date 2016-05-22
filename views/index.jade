@@ -3,10 +3,6 @@ extends ../node_modules/jade-bootstrap/_bootstrap
 append styles
     link(rel = "stylesheet", href = "/stylesheets/indexStyle.css")
 
-head
-    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js")
-
-
 block body
   .dropdownlist
     +navbar(title,"dropdown_menu")
@@ -30,13 +26,9 @@ block body
                             input(id='password', type='password' name='password' placeholder='Your password' required)
                         fieldset(id='actions')
                             input(type='submit', id='submit', value='Login')
-        
 
-        
+
+
   .container
       h1 TradeYou
-      +carousel("Carousel ID_2",[
-	   {image:"images/slide1.jpg"},
-	   {image:"images/slide5.jpg"}
-        ])
 

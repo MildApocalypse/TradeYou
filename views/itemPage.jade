@@ -4,11 +4,7 @@
 extends ../node_modules/jade-bootstrap/_bootstrap
 
 append styles
-    link(rel = "stylesheet", href = "/stylesheets/indexStyle.css")
-
-head
-    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js")
-
+    link(rel = "stylesheet", href = "/stylesheets/itemPageStyle.css")
 
 block body
     .dropdownlist
@@ -22,3 +18,28 @@ block body
                 +nav_item("#") Cars
                 +nav_item("#") Books
                 +nav_item("#") Electronics
+
+    .container
+        h1(id="title") !{Title}
+
+        div(id="imageView")
+            -if(imagePlaced == false){
+                div(id="placeholder")
+                    +icon("unchecked")
+                    p No image uploaded
+            -}
+            -else{
+                img(src=im)
+            -}
+
+        br
+        +tab-list(["Description", "Statistics", "Contact"],0)
+            +tab("Description", "active")
+                h1 Description
+                p this is the description tab
+            +tab("Statistics")
+                h1 Statistics
+                p this is the statistics tab
+            +tab("Contact")
+                h1 Contact
+                p this is the contact tab
