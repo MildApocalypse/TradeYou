@@ -14,16 +14,16 @@ router.get('/', function (req,res) {
 });
 
 router.post('/*', multer({ dest : './uploads/'}).single('filename'), function(req,res){
-
+    //console.log(req.query.File);
     var tmp_path = req.file.path;
     var target_path = './public/images/' + req.file.originalname;
 
     var src = fs.createReadStream(tmp_path);
     var dest = fs.createWriteStream(target_path);
     src.pipe(dest);
-    console.log("/images/" + req.file.originalname);
     src.on('end', function() { res.render('createItem', {imagePlaced: true, im: "/images/"
-                                + req.file.originalname}) });
+                                + req.file.originalname})
+    });
     src.on('error', function(err) { res.sendStatus(500); });
 })
 
