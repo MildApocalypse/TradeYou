@@ -13,6 +13,8 @@ var browse = require('./routes/browse');
 var buy = require('./routes/buy');
 var cancel = require('./routes/cancel');
 var itemPage = require('./routes/itemPage');
+var edit = require('./routes/edit');
+var purchases = require('./routes/purchases');
 
 var app = express();
 
@@ -37,6 +39,8 @@ app.use('/browse', browse);
 app.use('/buy', buy);
 app.use('/cancel', cancel);
 app.use('/itemPage', itemPage);
+app.use('/edit', edit);
+app.use('/purchases', purchases);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

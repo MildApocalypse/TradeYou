@@ -6,7 +6,8 @@ var router = express.Router();
 /* GET users listing. */
 router.get('/', function(req, res) {
  // var pathToFile =
-// pg.defaults.ssl = true;
+  var listing = [];
+  pg.defaults.ssl = true;
   pg.connect(database, function (err, client, done) {
     if (err) {
       console.error('Could not connect to the database');
@@ -16,7 +17,18 @@ router.get('/', function(req, res) {
     console.log('Connected to database');
       //Check the data in table
       var sid = req.query.filr;
+      var uid = 1; //temporary, this hsould be current user's uid
       //console.log(sid);
+
+      client.query("UPDATE Listing SET uid = '"+uid+"' WHERE sid = '"+sid+"' ", function(error,result){
+        done();
+      if (error) {
+        console.error('Failed to execute selecting from listing in buy query');
+        console.error(error);
+        return;
+      }
+      });
+
       client.query("SELECT * FROM Listing WHERE sid = '"+sid+"' ", function(error,result){
         done();
       if (error) {

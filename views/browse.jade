@@ -15,17 +15,25 @@ block body
                 +nav_item("/createItem") Create Listing
                 +nav_item("#") Current Listings
             +nav_item_dropdown("#")(label="Catagories")
-                +nav_item("#") Cars
-                +nav_item("#") Books
-                +nav_item("#") Electronics
+                +nav_item("/browse?filr=cars") Cars
+                +nav_item("/browse?filr=books") Books
+                +nav_item("/browse?filr=electronics") Electronics
+            +a-btn-danger("/purchases")
+                +icon('shopping-cart')
+
+
     .container
         ul
             each val in Arrays
                 if val.uid == currentUser
                     li      
                         p   These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
+                            span &nbsp;
+                            button.btn.btn-default(type='button', onclick="location.href='/edit?filr=#{val.sid}'") Edit 
+                            span &nbsp;
                             button.btn.btn-default(type='button', onclick="location.href='/cancel?filr=#{val.sid}'") Cancel
                 else 
                     li      
                         p   These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
+                            span &nbsp;
                             button.btn.btn-default(type='button', onclick="location.href='/buy?filr=#{val.sid}'") Buy

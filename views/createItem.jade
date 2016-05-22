@@ -13,8 +13,9 @@ block body
                 +nav_item("/createItem") Create Listing
                 +nav_item("#") Current Listings
             +nav_item_dropdown("#")(label="Catagories")
-                +nav_item("#") Cars
-                +nav_item("#") Books
+                +nav_item("/browse?filr=cars") Cars
+                +nav_item("/browse?filr=books") Books
+                +nav_item("/browse?filr=electronics") Electronics
 
     .container
         h1 Create new Item
@@ -54,13 +55,13 @@ block body
                 br
             .btn-group(data-toggle='buttons')
                 label.btn.btn-primary
-                    input(type='radio',name='tag',autocomplete='off',value='Cars')
+                    input(type='radio',name='tag',autocomplete='off',value='cars')
                     | Cars
                 label.btn.btn-primary
-                    input(type='radio',name='tag',autocomplete='off',value='Tanks')
-                    | Tanks
+                    input(type='radio',name='tag',autocomplete='off',value='books')
+                    | Books
                 label.btn.btn-primary
-                    input(type='radio',name='tag',autocomplete='off',value='Electronics')
+                    input(type='radio',name='tag',autocomplete='off',value='electronics')
                     | Electronics
             br
             input(type='submit' class='btn btn-default', value='Save')
