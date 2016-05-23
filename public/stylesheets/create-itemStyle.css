@@ -41,3 +41,7 @@ h1 {
 #uplbtn{
     float: left
 }
+
+a.btn.btn-danger{
+    margin-top: 8px;
+}

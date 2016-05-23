@@ -22,3 +22,7 @@ title {
 a {
     color: #B7B6B6
 }
+
+a.btn.btn-danger{
+    margin-top: 8px;
+}
