@@ -26,49 +26,97 @@ block body
             +nav_item("/") Log Out
 
     .container
-        h1(id="title") !{item[2]}
-        div(id="imageView")
-            -if(imagePlaced == false){
+        -if(item[2] == "none"){
+           h1 Untitled Item
+        -}
+        -else{
+            h1(id="title") !{item[2]}
+        -}
+        div(id="imageView" class="crop")
+            -if(item[1] == "none"){
                 div(id="placeholder")
                     +icon("unchecked")
                     p No image uploaded
             -}
             -else{
-                img(src=im)
+                img(src=item[1])
             -}
         br
         +tab-list(["Description", "Statistics", "Contact"],0, id="descriptionTabs")
             +tab("Description", "active")
+                br
                 div(id="descBox")
+                    -if(item[16] == "none") {
+                        p No Description available.
+                    -}
+                    -else {
+                        p !{item[16]}
+                    -}
             +tab("Statistics")
                 br
                 div(id="tagLine")
                     p Tag:
                     div(id="tag")
+                        -if(item[4] == "none"){
+                            p No tag given.
+                        -}
+                        -else{
+                            p !{item[4]}
+                        -}
                 br
                 br
                 div(id="measurements")
                     p Measurements:
-                    div(id="long" )
-                    div(id="height" )
-                    div(id="weight" )
+                    -if(item[7] == -1 && item[8] == -1 && item[9] == -1){
+                        p No measurements given.
+                    -}
+                    div(id="long")
+                        -if(item[7] != -1){
+                            p Longest side: !{item[7]}cm
+                        -}
+                    div(id="height")
+                        -if(item[8] != -1){
+                            p Height: !{item[8]}cm
+                        -}
+                    div(id="weight")
+                        -if(item[9] != -1){
+                            p Weight: !{item[9]}kg
+                        -}
             +tab("Contact")
-                div(id="address")
-                    div(id="addr1")
-                    br
-                    br
-                    div(id="addr2")
-                    br
-                    br
-                    div(id="city")
-                    br
-                    br
-                    div(id="suburb")
-                div(id="contact")
-                    div(id="email")
-                    br
-                    br
-                    div(id="telephone")
+                -if(item[10] == "none" && item[11] == "none" && item[12] == "none" && item[13] == "none" && item[14] == "none" && item[15] == -1){
+                    p No details given
+                -}
+                -else{
+                    div(id="address")
+                        br
+                        div(id="addr1")
+                            -if(item[10] != "none"){
+                                p Address: !{item[10]}
+                            -}
+                        div(id="addr2")
+                            -if(item[11] != "none"){
+                                p !{item[11]}
+                            -}
+                        div(id="city")
+                            -if(item[12] != "none"){
+                                p City: !{item[12]}
+                            -}
+                        div(id="suburb")
+                            -if(item[13] != "none"){
+                                p Suburb: !{item[13]}
+                            -}
+                        br
+                        br
+                    div(id="contact")
+                        div(id="email")
+                                -if(item[14] != "none"){
+                                p email: !{item[14]}
+                            -}
+                        div(id="telephone")
+                            -if(item[15] != -1){
+                                p Phone: !{item[15]}
+                            -}
+                -}
         br
         br
         div(id="line")

@@ -33,7 +33,7 @@ router.get('/', function(req,res) {
             // for (i =0; i < result.rows.length; i++){
             // console.log(listings[i]);
             // }
-    
+            done();
             res.render('itemPage', {item: arr});
             });
         });
