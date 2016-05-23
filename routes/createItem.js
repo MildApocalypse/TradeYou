@@ -26,7 +26,41 @@ router.post('/', multer({ dest : './uploads/'}).single('filename'), function(req
     src.on('error', function(err) { res.sendStatus(500); });
 });
 
-router.post('/redirect', function (req,res){
+router.get('/redirect', function (req,res){
+    var file = req.query.file
+    var title = req.query.title;
+    var price = req.query.price;
+    var quan = req.query.quan;
+    var desc = req.query.txtEdit;
+    var tag = req.query.tag;
+    var longestSide = req.query.ls;
+    var height = req.query.h;
+    var weight = req.query.w;
+    var addrLine1 = req.query.a1;
+    var addrLine2 = req.query.a2;
+    var city = req.query.cit;
+    var suburb = req.query.sub;
+    var email = req.query.em;
+    var phoneNum = req.query.phoneNum;
+
+    pg.connect(database, function (err, client, done) {
+        if (err) {
+            console.error('Could not connect to the database');
+            console.error(err);
+            return;
+        }
+        console.log('Connected to database');
+
+        client.query("INSERT INTO Listing WHERE sid = '"+sid+"'", function(error,result){
+            done();
+            if (error) {
+                console.error('Failed to execute deletion from listing in buy query');
+                console.error(error);
+                return;
+            }
+        });
+        res.redirect('/createItem');
+    });
     res.redirect('/itemPage');
 });
 
