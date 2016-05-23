@@ -34,5 +34,7 @@ block body
                                 img(src='images/noimage.jpg')
                             td
                                 p #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
+                                a(href='/itemPage?name=#{val.itemname}&image=#{val.imagepath}&price=#{val.price}&description=#{val.description}&tag=#{val.tag}') View Items Listing Page
+
         p &nbsp
 
