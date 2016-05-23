@@ -8,6 +8,15 @@ button{
 h2{
     color: #e8f2ff;
 }
+
+.jumbotron{
+    background-color: #231F22;
+}
+
+h1.browseTitle{
+    color: #e7e7e7;
+}
+
 table{
     border: 1px solid black;
     width: 100%;
@@ -23,6 +32,8 @@ a.btn.btn-danger{
 .container{
     background-color: #6F6F6F;
     width: 80%;
+    padding-left: 35px;
+    padding-right: 35px;
 }
 
 li{
