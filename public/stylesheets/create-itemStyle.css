@@ -43,6 +43,7 @@ h1.createTitle{
     width: 500px;
     height: 500px;
 }
+
 #uplbtn{
     float: left
 }
@@ -71,7 +72,8 @@ a {
 
 #saveBtn{
     float: left;
-    margin-top: 10px
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #line{
