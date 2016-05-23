@@ -4,7 +4,7 @@ extends ../node_modules/jade-bootstrap/_bootstrap
 
 
 append styles
-    link(rel = "stylesheet", href = "/stylesheets/browse.css")
+    link(rel = "stylesheet", href = "/stylesheets/indexStyle.css")
 
 block body
     .dropdownlist
@@ -20,20 +20,17 @@ block body
                 +nav_item("/browse?filr=electronics") Electronics
             +a-btn-danger("/purchases")
                 +icon('shopping-cart')
-            +nav_item("/") Log Out
 
     .anotherone
         .jumbotron
             center
                 h1.browseTitle Browse
-
-
+                
     .container
         center
         p &nbsp
             table
                 each val in Arrays
-                    if val.uid == currentUser
                         tr
                             td
                                 img(src='images/noimage.jpg')
@@ -41,17 +38,6 @@ block body
                                 p These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
 
                             td
-                                button.btn.btn-default(type='button', onclick="location.href='/edit?filr=#{val.sid}'") Edit
-                            //td
                                 button.btn.btn-default(type='button', onclick="location.href='/cancel?filr=#{val.sid}'") Cancel
-                    else
-                        tr
-                            td
-                                img(src='images/noimage.jpg')
-                            td
-                                p These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
 
-                            td
-                                button.btn.btn-default(type='button', onclick="location.href='/buy?filr=#{val.sid}'") Buy
         p &nbsp
-
