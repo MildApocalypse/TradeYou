@@ -4,7 +4,7 @@ extends ../node_modules/jade-bootstrap/_bootstrap
 
 
 append styles
-    link(rel = "stylesheet", href = "/stylesheets/indexStyle.css")
+    link(rel = "stylesheet", href = "/stylesheets/browse.css")
 
 block body
     .dropdownlist
@@ -22,19 +22,36 @@ block body
                 +icon('shopping-cart')
             +nav_item("/") Log Out
 
+    .anotherone
+        .jumbotron
+            h1 Browse
+            h3 You are now browsing all item for sale
+
 
     .container
-        ul
-            each val in Arrays
-                if val.uid == currentUser
-                    li      
-                        p   These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
-                            span &nbsp;
-                            button.btn.btn-default(type='button', onclick="location.href='/edit?filr=#{val.sid}'") Edit 
-                            span &nbsp;
-                            button.btn.btn-default(type='button', onclick="location.href='/cancel?filr=#{val.sid}'") Cancel
-                else 
-                    li      
-                        p   These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
-                            span &nbsp;
-                            button.btn.btn-default(type='button', onclick="location.href='/buy?filr=#{val.sid}'") Buy
+        center
+            table
+                h2 All Items
+                each val in Arrays
+                    if val.uid == currentUser
+                        tr
+                            td
+                                img(src='images/noimage.jpg')
+                            td
+                                p These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
+
+                            td
+                                button.btn.btn-default(type='button', onclick="location.href='/edit?filr=#{val.sid}'") Edit
+                            //td
+                                button.btn.btn-default(type='button', onclick="location.href='/cancel?filr=#{val.sid}'") Cancel
+                    else
+                        tr
+                            td
+                                img(src='images/noimage.jpg')
+                            td
+                                p These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
+
+                            td
+                                button.btn.btn-default(type='button', onclick="location.href='/buy?filr=#{val.sid}'") Buy
+        p &nbsp
+

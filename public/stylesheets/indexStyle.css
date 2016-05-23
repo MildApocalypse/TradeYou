@@ -1,11 +1,35 @@
 body{
     Background: #231F22;
-    text-align: center;
+    text-align: left;
+}
+button{
+    text-align: right;
+}
+h2{
+    color: #e8f2ff;
+}
+
+.container{
+    background-color: #7e1515;
+    width: 80%;
+
+}
+li{
+    padding-bottom: 10px ;
 }
 
 h1{
-    color: #B7B6B6;
+    color: #ffffff;
     margin: auto;
+    padding-bottom: 0px;
+}
+p {
+    text-align: left;
+    font-size: 16px;
+    color:#ffffff;
+}
+li{
+    list-style-type: none;
 }
 
 nav ul{
