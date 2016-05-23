@@ -5,6 +5,11 @@ body{
 h1 {
     color: #B7B6B6;
 }
+h1.createTitle{
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
 .container{
     text-align: center;
 }
