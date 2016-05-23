@@ -34,7 +34,7 @@ router.get('/', function(req,res) {
             // console.log(listings[i]);
             // }
     
-            res.render('/imagePage', {item: arr});
+            res.render('itemPage', {item: arr});
             });
         });
 });
