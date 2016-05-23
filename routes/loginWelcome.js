@@ -34,17 +34,17 @@ router.get('/', function(req,res) {
 				return;
 			}
 			uid = result.rows[0].uid;
-			console.log(uid);
+			//console.log(uid);
+			res.render('login_welcome', {
+
+			name: username,
+			uid:uid
+
+			} );
 		});
 
 	});
-	console.log(uid);
-	res.render('login_welcome', {
-
-		name: username,
-		uid:uid
-
-	} );
+	
 
 });
 

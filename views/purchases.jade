@@ -6,20 +6,20 @@ append styles
 block body
     .dropdownlist
         +navbar("TradeYou","dropdown_menu")
-            +nav_item("/loginWelcome") Home
-            +nav_item("/browse") Browse
+            a.navbar-brand(href="/loginWelcome?Uid=#{uid}") Home
+            a.navbar-brand(href="/browse?Uid=#{uid}") Browse
             +nav_item_dropdown("#")(label="Sell")
-                +nav_item("/createItem") Create Listing
-                +nav_item("/userListing") Current Listings
+                a.navbar-brand(href="/createItem?Uid=#{uid}") Create Listing
+                a.navbar-brand(href="/userListing?Uid=#{uid}") Current Listings
             +nav_item_dropdown("#")(label="Catagories")
-                +nav_item("/browse?filr=cars") Cars
-                +nav_item("/browse?filr=books") Books
-                +nav_item("/browse?filr=electronics") Electronics
-                +nav_item("/browse?filr=toys") Toys
-                +nav_item("/browse?filr=art") Art
-                +nav_item("/browse?filr=furniture") Furniture
-                +nav_item("/browse?filr=stationary") stationary
-            +a-btn-danger("/purchases")
+                a.navbar-brand(href="/browse?filr=cars&Uid=#{uid}") Cars
+                a.navbar-brand(href="/browse?filr=books&Uid=#{uid}") Books
+                a.navbar-brand(href="/browse?filr=electronics&Uid=#{uid}") Electronics
+                a.navbar-brand(href="/browse?filr=toys&Uid=#{uid}") Toys
+                a.navbar-brand(href="/browse?filr=art&Uid=#{uid}") Art
+                a.navbar-brand(href="/browse?filr=furniture&Uid=#{uid}") Furniture
+                a.navbar-brand(href="/browse?filr=stationary&Uid=#{uid}") stationary
+            a.btn-danger(href="/purchases?Uid=#{uid}", padding=0)
                 +icon('shopping-cart')
             +nav_item("/") Log Out
     .anotherone
