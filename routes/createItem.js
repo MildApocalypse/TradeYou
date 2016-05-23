@@ -13,7 +13,7 @@ router.get('/', function (req,res) {
     res.render('createItem', {imagePlaced: false});
 });
 
-router.post('/*', multer({ dest : './uploads/'}).single('filename'), function(req,res){
+router.post('/', multer({ dest : './uploads/'}).single('filename'), function(req,res){
     var tmp_path = req.file.path;
     var target_path = './public/images/' + req.file.originalname;
 
@@ -26,8 +26,7 @@ router.post('/*', multer({ dest : './uploads/'}).single('filename'), function(re
     src.on('error', function(err) { res.sendStatus(500); });
 });
 
-router.get('/*', function (req,res){
-    
+router.post('/redirect', function (req,res){
     res.redirect('/itemPage');
 });
 
