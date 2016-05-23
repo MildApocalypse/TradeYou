@@ -28,6 +28,10 @@ nav #login{
     box-shadow: 1px 0 0 #fff;
 }
 
+nav #cartIcon{
+    padding-top: 8px;
+}
+
 nav #login-trigger{
     display: inline-block;
         display: inline;
