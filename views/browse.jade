@@ -43,7 +43,7 @@ block body
                                 if val.imagepath == "undefined"
                                     img(src='images/noimage.jpg')
                                 else
-                                    img(src='images/#{val.imagepath}', width='163', height='187')
+                                    img(src='#{val.imagepath}', width='163', height='187')
                             td
                                 p These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
                                 a(href='/itemPage?name=#{val.itemname}&image=#{val.imagepath}&price=#{val.price}&description=#{val.description}&tag=#{val.tag}&Uid=#{uid}') View Items Listing Page
@@ -54,7 +54,7 @@ block body
                     else
                         tr
                             td
-                                img(src='images/noimage.jpg')
+                                img(src='#{val.imagepath}',width='163', height='187')
                             td
                                 p These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
                                 a(href='/itemPage?name=#{val.itemname}?image=#{val.imagepath}?price=#{val.price}?description=#{val.description}?tag=#{val.tag}&Uid=#{uid}') View Items Listing Page

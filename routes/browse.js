@@ -280,6 +280,7 @@ router.get('/', function(req,res,next) {
 				console.error(error);
 				return;
 			}
+			console.log("IMAGE PATH"+result.rows[0].imagepath);
 			var i = 0;
 			for (i =0; i < result.rows.length; i++){
 			listings.push(result.rows[i]);			
