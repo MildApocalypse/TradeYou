@@ -1,6 +1,6 @@
 extends ../node_modules/jade-bootstrap/_bootstrap
 append styles
-    link(rel = "stylesheet", href = "/stylesheets/indexStyle.css")
+    link(rel = "stylesheet", href = "/stylesheets/browse.css")
 
 
 block body
@@ -18,8 +18,18 @@ block body
             +a-btn-danger("/purchases")
                 +icon('shopping-cart')
             +nav_item("/") Log Out
+    .anotherone
+        .jumbotron
+            center
+                h1.browseTitle Purchases
+
     .container
-        | Here are your recent purchases:
-        ul
-            each val in Arrays
-               |   #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
+        p Here are your recent purchases:
+        center
+            table
+                each val in Arrays
+                    tr
+                        td
+                            p #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
+        p &nbsp
+
