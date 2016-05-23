@@ -43,6 +43,40 @@ router.get('/redirect', function (req,res){
     var email = req.query.em;
     var phoneNum = req.query.phoneNum;
 
+
+
+    if(file == "") {file = "none"}
+    if(title == "") {title = "none"}
+    if(price == "") {price = -1}
+    if(quan == "") {quan = -1}
+    if(desc == "") {desc = "none"}
+    if(tag == "") {tag = "none"}
+    if(longestSide == "") {longestSide = -1}
+    if(height == "") {height = -1}
+    if(weight == "") {weight = -1}
+    if(addrLine1 == "") {addrLine1 = "none"}
+    if(addrLine2 == "") {addrLine2 = "none"}
+    if(city == "") {city = "none"}
+    if(suburb == "") {suburb = "none"}
+    if(email == "") {email = "none"}
+    if(phoneNum == "") {phoneNum = "none"}
+
+    console.log("file: " + file + "\n" +
+        "title: " + title + "\n" +
+        "price: " + price + "\n" +
+        "quantity: " + quan + "\n" +
+        "description: " + desc + "\n" +
+        "tag: " + tag + "\n" +
+        "longest side: " + longestSide + "\n" +
+        "height: " + height + "\n" +
+        "weight: " + weight + "\n" +
+        "add line 1: " + addrLine1 + "\n" +
+        "add line 2: " + addrLine2 + "\n" +
+        "city: " + city + "\n" +
+        "suburb: " + suburb + "\n" +
+        "email: " + email + "\n"  +
+        "phone number: " + phoneNum + "\n")
+
     pg.defaults.ssl = true;
 
     pg.connect(database, function (err, client, done) {
@@ -67,7 +101,7 @@ router.get('/redirect', function (req,res){
             }
         });
     });
-    res.redirect('/itemPage');
+    res.redirect('/itemPage/');
 });
 
 
