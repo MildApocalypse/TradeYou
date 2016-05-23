@@ -4,12 +4,12 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req,res) {
-	var username = req.query.usermail;
+	var username = req.query.Email;
 	var password = req.query.password;
-	var toDelete = req.query.deleter;
+	var uid = "";
 	console.log(username);
 	console.log(password);
-	var realname
+	pg.defaults.ssl = true;
 	pg.connect(database, function (err, client, done) {
 		if (err) {
 			console.error('Could not connect to the database');
@@ -19,20 +19,32 @@ router.get('/', function(req,res) {
 		console.log('Connected to database');
 		//add a user
 		client.query("INSERT INTO Users (Username, Password) VALUES ('" + username + "','" + password + "');", function (error, result) {
-			//Check the data in table
-			//client.query("SELECT * FROM Users;", function(error,result){
-			//delete item
-			//client.query("DELETE FROM Users WHERE username=('"+toDelete+"')", function(error,result){
 			done();
 			if (error) {
 				console.error('Failed to execute query');
 				console.error(error);
 				return;
 			}
-			console.log(result);
 		});
+		client.query("SELECT*FROM Users WHERE username ='"+username+"'; ", function (error, result) {
+			done();
+			if (error) {
+				console.error('Failed to execute query');
+				console.error(error);
+				return;
+			}
+			uid = result.rows[0].uid;
+			console.log(uid);
+		});
+
 	});
-	res.render('login_welcome', {name: "Josh"});
+	console.log(uid);
+	res.render('login_welcome', {
+
+		name: username,
+		uid:uid
+
+	} );
 
 });
 

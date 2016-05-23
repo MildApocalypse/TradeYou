@@ -2,7 +2,6 @@
 
 extends ../node_modules/jade-bootstrap/_bootstrap
 
-
 append styles
     link(rel = "stylesheet", href = "/stylesheets/browse.css")
 
@@ -31,7 +30,6 @@ block body
             center
                 h1.browseTitle Browse
 
-
     .container
         center
         p &nbsp
@@ -40,6 +38,7 @@ block body
                     if val.uid == currentUser
                         tr
                             td
+
                                 if val.imagepath == "undefined"
                                     img(src='images/noimage.jpg')
                                 else
