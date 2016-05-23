@@ -99,7 +99,7 @@ router.get('/redirect', function (req,res){
             }
         });
     });
-    res.redirect('/itemPage/');
+    res.redirect('/itemPage');
 });
 
 

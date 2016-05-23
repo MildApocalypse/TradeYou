@@ -32,6 +32,10 @@ h1.userTitle{
     color: #e7e7e7;
 }
 
+h1.welcome{
+    margin-bottom: 20px;
+}
+
 h1{
     color: #ffffff;
     margin: auto;

@@ -19,22 +19,24 @@ router.get('/', function(req,res) {
         console.log(req.query.txtEdit);
         console.log(req.query.ls);
         //Check the data in table
-        client.query("SELECT * FROM Listing WHERE ;", function(error,result){
+        client.query("SELECT * FROM Listing WHERE sid=96;", function(error,result){
             if (error) {
                 console.error('Failed to execute query');
                 console.error(error);
                 return;
             }
-            done();
+            var arr = [result.rows.uid, result.rows[0].imagepath, result.rows[0].itemname, result.rows[0].price,
+                result.rows[0].tag, result.rows[0].email, result.rows[0].quantity, result.rows[0].longestside,
+                result.rows[0].height, result.rows[0].weight, result.rows[0].address1, result.rows[0].address2,
+                result.rows[0].city, result.rows[0].suburb, result.rows[0].email, result.rows[0].phonenum,
+                result.rows[0].description];
             // for (i =0; i < result.rows.length; i++){
             // console.log(listings[i]);
             // }
     
-            res.render('itemPage', {imagePlaced: false})
+            res.render('itemPage', {item: arr});
             });
         });
-    
-   // res.render('itemPage', {imagePlaced: false})
 });
 
 module.exports = router;

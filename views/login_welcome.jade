@@ -23,10 +23,10 @@ block body
             a.btn-danger(href="/purchases?Uid=#{uid}", padding=0)
                 +icon('shopping-cart')
             +nav_item("/") Log Out
-    .container
+
         p &nbsp
         center
-            h1 TradeYou
+            h1.welcome Welcome to TradeYou!
         p &nbsp
         center
             #myCarousel.carousel.slide(data-ride='carousel')
@@ -39,13 +39,13 @@ block body
                 // Wrapper for slides
                 .carousel-inner(role='listbox')
                     .item.active
-                        img(src='images/slide1.jpg')
+                        img(src='images/BookBanner.png')
                     .item
-                        img(src='images/slide2.jpg')
+                        img(src='images/CarBanner.png')
                     .item
-                        img(src='images/slide3.jpg')
+                        img(src='images/ElecBanner.png')
                     .item
-                        img(src='images/slide5.jpg')
+                        img(src='images/ArtBanner.png')
                 // Left and right controls
                 a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
                     span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
