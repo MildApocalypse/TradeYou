@@ -128,3 +128,17 @@ a {
 #contact {
     float: right;
 }
+
+#pricetag, #quanNum{
+    width: 30%;
+    background-color: #6F6F6F;
+    border-color: #B7B6B6;
+}
+
+#sizing-addon2, #sizing-addon3{
+    background-color: #B7B6B6;
+}
+
+#price, #quantity{
+    margin: 10px;
+}
