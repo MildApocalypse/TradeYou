@@ -10,11 +10,15 @@ block body
             +nav_item("/browse") Browse
             +nav_item_dropdown("#")(label="Sell")
                 +nav_item("/createItem") Create Listing
-                +nav_item("#") Current Listings
+                +nav_item("/userListing") Current Listings
             +nav_item_dropdown("#")(label="Catagories")
                 +nav_item("/browse?filr=cars") Cars
                 +nav_item("/browse?filr=books") Books
                 +nav_item("/browse?filr=electronics") Electronics
+                +nav_item("/browse?filr=toys") Toys
+                +nav_item("/browse?filr=art") Art
+                +nav_item("/browse?filr=furniture") Furniture
+                +nav_item("/browse?filr=stationary") stationary
             +a-btn-danger("/purchases")
                 +icon('shopping-cart')
             +nav_item("/") Log Out
