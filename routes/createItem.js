@@ -43,6 +43,8 @@ router.get('/redirect', function (req,res){
     var email = req.query.em;
     var phoneNum = req.query.phoneNum;
 
+    pg.defaults.ssl = true;
+
     pg.connect(database, function (err, client, done) {
         if (err) {
             console.error('Could not connect to the database');
@@ -51,15 +53,19 @@ router.get('/redirect', function (req,res){
         }
         console.log('Connected to database');
 
-        client.query("INSERT INTO Listing WHERE sid = '"+sid+"'", function(error,result){
+        client.query("INSERT INTO Listing (Uid, imagepath, itemname, price, tag, " +
+            "quantity, longestside, height, weight, address1, address2, city, suburb, email, phonenum, " +
+            "description) VALUES ( 1,'" +
+            file + "','" + title + "'," + price + ",'" + tag + "'," + quan + "," + longestSide + "," + height +
+            "," + weight + ",'" + addrLine1 + "','" + addrLine2 + "','"  + city + "','" + suburb + "','" + email +
+            "'," + phoneNum + ",'" + desc + "');", function(error,result){
             done();
             if (error) {
-                console.error('Failed to execute deletion from listing in buy query');
+                console.error('Failed to add item');
                 console.error(error);
                 return;
             }
         });
-        res.redirect('/createItem');
     });
     res.redirect('/itemPage');
 });

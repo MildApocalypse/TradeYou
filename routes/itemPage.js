@@ -7,16 +7,6 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/*', function(req,res) {
-    var desc = req.query.description;
-    var price = req.query.price;
-    var name = req.query.name;
-    var image = req.query.image;
-    var tag = req.query.tag;
-    console.log(desc);
-    console.log(price);
-    console.log(name);
-    console.log(image);
-    console.log(tag);
 
     // pg.defaults.ssl = true; //Uncomment this if you cannot connect to browse
     // pg.connect(database, function (err, client, done) {
