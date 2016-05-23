@@ -2,7 +2,7 @@ body{
     Background: #231F22;
 }
 
-title {
+h1 {
     color: #B7B6B6;
 }
 
@@ -11,6 +11,15 @@ title {
     height: 500px;
     width: 500px;
     margin: auto;
+}
+
+.crop img{
+    width: 500px;
+    height: 500px;
+}
+
+p {
+    color: #B7B6B6;
 }
 
 #placeholder{
@@ -28,7 +37,6 @@ a.btn.btn-danger{
 }
 
 #desc{
-    background-color: #6F6F6F;
     color: #B7B6B6;
 }
 
