@@ -36,7 +36,10 @@ block body
                     if val.uid == currentUser
                         tr
                             td
-                                img(src='images/noimage.jpg')
+                                if val.imagepath == "undefined"
+                                    img(src='images/noimage.jpg')
+                                else
+                                    img(src='images/#{val.imagepath}', width='163', height='187')
                             td
                                 p These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
 
@@ -53,5 +56,5 @@ block body
 
                             td
                                 button.btn.btn-default(type='button', onclick="location.href='/buy?filr=#{val.sid}'") Buy
-        p &nbsp
+        p.browseFooter &nbsp
 

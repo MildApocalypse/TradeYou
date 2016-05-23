@@ -24,12 +24,15 @@ block body
                 h1.browseTitle Purchases
 
     .container
+        p &nbsp
         p Here are your recent purchases:
         center
             table
                 each val in Arrays
-                    tr
-                        td
-                            p #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
+                        tr
+                            td
+                                img(src='images/noimage.jpg')
+                            td
+                                p #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
         p &nbsp
 
