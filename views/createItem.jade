@@ -39,7 +39,7 @@ block body
             br
             br
 
-        form(action='/createItem/*', method='get')
+        form(action='/createItem/redirect', method='post')
 
             div(class='input-group input-group-lg')
                 span(class='input-group-addon' id ='sizing-addon1') Title
@@ -49,25 +49,58 @@ block body
             br
             +tab-list(["Description", "Statistics", "Contact"],0, id="descriptionTabs")
                 +tab("Description", "active")
-                    h1 Description
-                    p this is the description tab
+                    textarea(name="txtEdit", id="descBox")
                 +tab("Statistics")
-                    h1 Statistics
-                    p this is the statistics tab
+                    br
+                    div(id="tags")
+                        .btn-group(data-toggle='buttons')
+                            p(id="toolTip") Tags:
+                            label.btn.btn-primary
+                                input(type='radio',name='tag',autocomplete='off',value='cars')
+                                | Cars
+                            label.btn.btn-primary
+                                input(type='radio',name='tag',autocomplete='off',value='books')
+                                | Books
+                            label.btn.btn-primary
+                                input(type='radio',name='tag',autocomplete='off',value='electronics')
+                                | Electronics
+                            label.btn.btn-primary
+                                input(type='radio',name='tag',autocomplete='off',value='toys')
+                                | Toys
+                            label.btn.btn-primary
+                                input(type='radio',name='tag',autocomplete='off',value='art')
+                                | Art
+                            label.btn.btn-primary
+                                input(type='radio',name='tag',autocomplete='off',value='furniture')
+                                | Furniture
+                            label.btn.btn-primary
+                                input(type='radio',name='tag',autocomplete='off',value='stationery')
+                                | Stationery
+                    br
+                    br
+                    div(id="measurements")
+                        p Measurements:
+                        input(type="number" id="long" placeholder="longest side(cm)")
+                        input(type="number" id="height" placeholder="height(cm)")
+                        input(type="number" id="weight" placeholder="weight(kg)")
                 +tab("Contact")
-                    h1 Contact
-                    p this is the contact tab
+                    div(id="address")
+                        input(type="text" id="addr1" placeholder="address")
+                        br
+                        br
+                        input(type="text" id="addr2" placeholder="address line 2")
+                        br
+                        br
+                        input(type="text" id="city" placeholder="city")
+                        br
+                        br
+                        input(type="text" id="suburb" placeholder="suburb")
+                    div(id="contact")
+                        input(type="email" id="email" placeholder="email")
+                        br
+                        br
+                        input(type="tel" id="telephone" placeholder="telephone")
             br
-            .btn-group(data-toggle='buttons')
-                label.btn.btn-primary
-                    input(type='radio',name='tag',autocomplete='off',value='cars')
-                    | Cars
-                label.btn.btn-primary
-                    input(type='radio',name='tag',autocomplete='off',value='books')
-                    | Books
-                label.btn.btn-primary
-                    input(type='radio',name='tag',autocomplete='off',value='electronics')
-                    | Electronics
             br
-            br
-            input(type='submit' class='btn btn-default', value='Save')
+            div(id="line")
+            input(type='submit' class='btn btn-default', value='Save' id="saveBtn")
