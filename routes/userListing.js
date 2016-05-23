@@ -8,7 +8,7 @@ var router = express.Router();
 router.get('/', function(req,res,next) {
     //res.send("listing site is working");
     var listings = [];
-    var userid='1';
+    var userid=req.query.Uid;
     var tagFilter = req.query.filr;
     //console.log(tagFilter);
     pg.defaults.ssl = true; //Uncomment this if you cannot connect to browse
@@ -40,7 +40,7 @@ router.get('/', function(req,res,next) {
             res.render('userListing', {
 
                 Arrays:listings,
-                currentUser:userid
+                uidr:userid
                 
             });
         done();
@@ -76,7 +76,7 @@ router.get('/', function(req,res,next) {
             res.render('userListing', {
 
                 Arrays:listings,
-                currentUser:userid
+                uid:userid
                 
             });
         done();
@@ -112,12 +112,156 @@ router.get('/', function(req,res,next) {
             res.render('userListing', {
 
                 Arrays:listings,
-                currentUser:userid
+                uid:userid
                 
             });
         done();
             });
     });
+    }
+        //toys tag
+    else if(tagFilter=='toys'){
+        var listings = [];
+        pg.connect(database, function (err, client, done) {
+            if (err) {
+                console.error('Could not connect to the database');
+                console.error(err);
+                return;
+            }
+            console.log('Connected to database');
+            //Check the data in table
+            client.query("SELECT * FROM Listing WHERE tag = '"+tagFilter+"';", function(error,result){
+                if (error) {
+                    console.error('Failed to execute query');
+                    console.error(error);
+                    return;
+                }
+                var i = 0;
+                for (i =0; i < result.rows.length; i++){
+                    listings.push(result.rows[i]);
+                }
+
+                // for (i =0; i < result.rows.length; i++){
+                // console.log(listings[i]);
+                // }
+
+                res.render('browse', {
+
+                    Arrays:listings,
+                    uid:userid
+
+                });
+                done();
+            });
+        });
+    }
+        //art tag
+    else if(tagFilter=='art'){
+        var listings = [];
+        pg.connect(database, function (err, client, done) {
+            if (err) {
+                console.error('Could not connect to the database');
+                console.error(err);
+                return;
+            }
+            console.log('Connected to database');
+            //Check the data in table
+            client.query("SELECT * FROM Listing WHERE tag = '"+tagFilter+"';", function(error,result){
+                if (error) {
+                    console.error('Failed to execute query');
+                    console.error(error);
+                    return;
+                }
+                var i = 0;
+                for (i =0; i < result.rows.length; i++){
+                    listings.push(result.rows[i]);
+                }
+
+                // for (i =0; i < result.rows.length; i++){
+                // console.log(listings[i]);
+                // }
+
+                res.render('browse', {
+
+                    Arrays:listings,
+                    uid:userid
+
+                });
+                done();
+            });
+        });
+    }
+        //furniture tag
+    else if(tagFilter=='furniture'){
+        var listings = [];
+        pg.connect(database, function (err, client, done) {
+            if (err) {
+                console.error('Could not connect to the database');
+                console.error(err);
+                return;
+            }
+            console.log('Connected to database');
+            //Check the data in table
+            client.query("SELECT * FROM Listing WHERE tag = '"+tagFilter+"';", function(error,result){
+                if (error) {
+                    console.error('Failed to execute query');
+                    console.error(error);
+                    return;
+                }
+                var i = 0;
+                for (i =0; i < result.rows.length; i++){
+                    listings.push(result.rows[i]);
+                }
+
+                // for (i =0; i < result.rows.length; i++){
+                // console.log(listings[i]);
+                // }
+
+                res.render('browse', {
+
+                    Arrays:listings,
+                    uid:userid
+
+                });
+                done();
+            });
+        });
+    }
+        //stationary tag
+    else if(tagFilter=='stationary'){
+        var listings = [];
+        pg.connect(database, function (err, client, done) {
+            if (err) {
+                console.error('Could not connect to the database');
+                console.error(err);
+                return;
+            }
+            console.log('Connected to database');
+            //Check the data in table
+            client.query("SELECT * FROM Listing WHERE tag = '"+tagFilter+"';", function(error,result){
+                if (error) {
+                    console.error('Failed to execute query');
+                    console.error(error);
+                    return;
+                }
+                var i = 0;
+                for (i =0; i < result.rows.length; i++){
+                    listings.push(result.rows[i]);
+                }
+
+                // for (i =0; i < result.rows.length; i++){
+                // console.log(listings[i]);
+                // }
+
+                res.render('browse', {
+
+                    Arrays:listings,
+                    uid:userid
+
+                });
+                done();
+            });
+        });
     }
     else{
     var listings = [];
@@ -147,7 +291,7 @@ router.get('/', function(req,res,next) {
             res.render('userListing', {
 
                 Arrays:listings,
-                currentUser:userid
+                uid:userid
                 
             });
         done();

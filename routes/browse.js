@@ -8,7 +8,8 @@ var router = express.Router();
 router.get('/', function(req,res,next) {
 	//res.send("listing site is working");
 	var listings = [];
-	var userid='1';
+	var userid=req.query.Uid;
+	console.log("This is browse uid" +userid);
 	var tagFilter = req.query.filr;
 	//console.log(tagFilter);
 	pg.defaults.ssl = true; //Uncomment this if you cannot connect to browse
@@ -40,7 +41,7 @@ router.get('/', function(req,res,next) {
     		res.render('browse', {
 
     			Arrays:listings,
-    			currentUser:userid
+    			uid:userid
     			
     		});
     	done();
@@ -76,7 +77,7 @@ router.get('/', function(req,res,next) {
     		res.render('browse', {
 
     			Arrays:listings,
-    			currentUser:userid
+    			uid:userid
     			
     		});
     	done();
@@ -112,7 +113,7 @@ router.get('/', function(req,res,next) {
     		res.render('browse', {
 
     			Arrays:listings,
-    			currentUser:userid
+    			uid:userid
     			
     		});
     	done();
@@ -148,7 +149,7 @@ router.get('/', function(req,res,next) {
 				res.render('browse', {
 
 					Arrays:listings,
-					currentUser:userid
+					uid:userid
 
 				});
 				done();
@@ -184,7 +185,7 @@ router.get('/', function(req,res,next) {
 				res.render('browse', {
 
 					Arrays:listings,
-					currentUser:userid
+					uid:userid
 
 				});
 				done();
@@ -220,7 +221,7 @@ router.get('/', function(req,res,next) {
 				res.render('browse', {
 
 					Arrays:listings,
-					currentUser:userid
+					uid:userid
 
 				});
 				done();
@@ -256,7 +257,7 @@ router.get('/', function(req,res,next) {
 				res.render('browse', {
 
 					Arrays:listings,
-					currentUser:userid
+					uid:userid
 
 				});
 				done();
@@ -291,7 +292,7 @@ router.get('/', function(req,res,next) {
     		res.render('browse', {
 
     			Arrays:listings,
-    			currentUser:userid
+    			uid:userid
     			
     		});
     	done();

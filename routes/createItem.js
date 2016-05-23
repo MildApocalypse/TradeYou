@@ -42,6 +42,7 @@ router.get('/redirect', function (req,res){
     var suburb = req.query.sub;
     var email = req.query.em;
     var phoneNum = req.query.phoneNum;
+    var uid = req.query.Uid;
 
     if(file == "") {file = "none"}
     if(title == "") {title = "none"}
@@ -99,7 +100,7 @@ router.get('/redirect', function (req,res){
             }
         });
     });
-    res.redirect('/itemPage');
+    res.redirect('/itemPage?Uid='+Uid);
 });
 
 

@@ -16,6 +16,7 @@ router.get('/', function(req, res) {
     console.log('Connected to database');
       //Check the data in table
       var sid = req.query.filr;
+      var uid = req.query.uid;
       //console.log(sid);
       
       client.query("DELETE FROM Listing WHERE sid = '"+sid+"'", function(error,result){
@@ -26,7 +27,7 @@ router.get('/', function(req, res) {
         return;
       } 
       });
-      res.redirect('/createItem');
+      res.redirect('/createItem?Uid='+uid);
     });
 
 });

@@ -35,7 +35,6 @@ block body
         center
         p &nbsp
             table
-                p THIS IS UID #{uid} THIS IS UID #{uid} THIS IS UID #{uid}THIS IS UID #{uid} THIS IS UID #{uid}
                 each val in Arrays
                     if val.uid == currentUser
                         tr
@@ -47,20 +46,20 @@ block body
                                     img(src='images/#{val.imagepath}', width='163', height='187')
                             td
                                 p These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
-                                a(href='/itemPage?name=#{val.itemname}&image=#{val.imagepath}&price=#{val.price}&description=#{val.description}&tag=#{val.tag}') View Items Listing Page
+                                a(href='/itemPage?name=#{val.itemname}&image=#{val.imagepath}&price=#{val.price}&description=#{val.description}&tag=#{val.tag}&Uid=#{uid}') View Items Listing Page
 
 
                             td
-                                button.btn.btn-default(type='button', onclick="location.href='/edit?filr=#{val.sid}'") Edit
+                                button.btn.btn-default(type='button', onclick="location.href='/edit?filr=#{val.sid}&Uid=#{uid}'") Edit
                     else
                         tr
                             td
                                 img(src='images/noimage.jpg')
                             td
                                 p These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
-                                a(href='/itemPage?name=#{val.itemname}?image=#{val.imagepath}?price=#{val.price}?description=#{val.description}?tag=#{val.tag}') View Items Listing Page
+                                a(href='/itemPage?name=#{val.itemname}?image=#{val.imagepath}?price=#{val.price}?description=#{val.description}?tag=#{val.tag}&Uid=#{uid}') View Items Listing Page
 
                             td
-                                button.btn.btn-default(type='button', onclick="location.href='/buy?filr=#{val.sid}'") Buy
+                                button.btn.btn-default(type='button', onclick="location.href='/buy?filr=#{val.sid}&Uid=#{uid}'") Buy
         p.browseFooter &nbsp
 

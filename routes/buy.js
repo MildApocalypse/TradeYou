@@ -17,8 +17,8 @@ router.get('/', function(req, res) {
     console.log('Connected to database');
       //Check the data in table
       var sid = req.query.filr;
-      var uid = 1; //temporary, this hsould be current user's uid
-      //console.log(sid);
+      var uid = req.query.Uid; //temporary, this hsould be current user's uid
+      console.log(uid);
 
       client.query("UPDATE Listing SET uid = '"+uid+"' WHERE sid = '"+sid+"' ", function(error,result){
         done();
@@ -55,7 +55,7 @@ router.get('/', function(req, res) {
         return;
       }
       });
-      res.redirect('/browse');
+      res.redirect('/browse?Uid='+uid);
     });
   });
 });
