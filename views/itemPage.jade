@@ -3,8 +3,6 @@
 
 extends ../node_modules/jade-bootstrap/_bootstrap
 append styles
-    link(rel = "stylesheet", href = "/stylesheets/create-itemStyle.css")
-append styles
     link(rel = "stylesheet", href = "/stylesheets/itemPageStyle.css")
 
 block body
@@ -41,61 +39,38 @@ block body
         br
         +tab-list(["Description", "Statistics", "Contact"],0, id="descriptionTabs")
             +tab("Description", "active")
-                textarea(name="txtEdit", id="descBox")
+                div(id="descBox")
             +tab("Statistics")
                 br
-                div(id="tags")
-                    .btn-group(data-toggle='buttons')
-                        p(id="toolTip") Tags:
-                        label.btn.btn-primary
-                            input(type='radio',name='tag',autocomplete='off',value='cars')
-                            | Cars
-                        label.btn.btn-primary
-                            input(type='radio',name='tag',autocomplete='off',value='books')
-                            | Books
-                        label.btn.btn-primary
-                            input(type='radio',name='tag',autocomplete='off',value='electronics')
-                            | Electronics
-                        label.btn.btn-primary
-                            input(type='radio',name='tag',autocomplete='off',value='toys')
-                            | Toys
-                        label.btn.btn-primary
-                            input(type='radio',name='tag',autocomplete='off',value='art')
-                            | Art
-                        label.btn.btn-primary
-                            input(type='radio',name='tag',autocomplete='off',value='furniture')
-                            | Furniture
-                        label.btn.btn-primary
-                            input(type='radio',name='tag',autocomplete='off',value='stationery')
-                            | Stationery
+                div(id="tagLine")
+                    p Tag:
+                    div(id="tag")
                 br
                 br
                 div(id="measurements")
                     p Measurements:
-                    input(name="ls" type="number" id="long" placeholder="longest side(cm)")
-                    input(name="h" type="number" id="height" placeholder="height(cm)")
-                    input(type="w" id="weight" placeholder="weight(kg)")
+                    div(id="long" )
+                    div(id="height" )
+                    div(id="weight" )
             +tab("Contact")
                 div(id="address")
-                    input(name="a1" type="text" id="addr1" placeholder="address")
+                    div(id="addr1")
                     br
                     br
-                    input(name="a2" type="text" id="addr2" placeholder="address line 2")
+                    div(id="addr2")
                     br
                     br
-                    input(name="cit" type="text" id="city" placeholder="city")
+                    div(id="city")
                     br
                     br
-                    input(name="sub" type="text" id="suburb" placeholder="suburb")
+                    div(id="suburb")
                 div(id="contact")
-                    input(name="em" type="email" id="email" placeholder="email")
+                    div(id="email")
                     br
                     br
-                    input(name="phoneNum" type="tel" id="telephone" placeholder="telephone")
+                    div(id="telephone")
         br
         br
         div(id="line")
-        input(type='submit' class='btn btn-default', value='Save' id="saveBtn")
-        input(type='hidden' name='file' value=im)
         br
         br

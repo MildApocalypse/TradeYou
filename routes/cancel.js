@@ -26,7 +26,7 @@ router.get('/', function(req, res) {
         return;
       } 
       });
-      res.redirect('/browse');
+      res.redirect('/userListing');
     });
 
 });
