@@ -42,6 +42,8 @@ block body
                                     img(src='images/#{val.imagepath}', width='163', height='187')
                             td
                                 p These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
+                                a(href='/itemPage?name=#{val.itemname}&image=#{val.imagepath}&price=#{val.price}&description=#{val.description}&tag=#{val.tag}') View Items Listing Page
+
 
                             td
                                 button.btn.btn-default(type='button', onclick="location.href='/edit?filr=#{val.sid}'") Edit
@@ -53,6 +55,7 @@ block body
                                 img(src='images/noimage.jpg')
                             td
                                 p These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
+                                a(href='/itemPage?name=#{val.itemname}?image=#{val.imagepath}?price=#{val.price}?description=#{val.description}?tag=#{val.tag}') View Items Listing Page
 
                             td
                                 button.btn.btn-default(type='button', onclick="location.href='/buy?filr=#{val.sid}'") Buy
