@@ -20,6 +20,10 @@ h1.browseTitle{
     color: #e7e7e7;
 }
 
+h1.userTitle{
+    color: #e7e7e7;
+}
+
 table{
     border: 1px solid black;
     width: 100%;
