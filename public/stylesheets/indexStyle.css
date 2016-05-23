@@ -24,6 +24,14 @@ div.dropdownlist{
     margin-bottom: 120px;
 }
 
+.jumbotron{
+    background-color:  #231F22;
+}
+
+h1.userTitle{
+    color: #e7e7e7;
+}
+
 h1{
     color: #ffffff;
     margin: auto;

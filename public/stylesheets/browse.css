@@ -8,12 +8,19 @@ button{
 h2{
     color: #e8f2ff;
 }
+a{
+    color: #00B7FF;
+}
 
 .jumbotron{
     background-color: #231F22;
 }
 
 h1.browseTitle{
+    color: #e7e7e7;
+}
+
+h1.userTitle{
     color: #e7e7e7;
 }
 

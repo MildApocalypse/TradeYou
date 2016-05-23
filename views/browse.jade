@@ -17,6 +17,10 @@ block body
                 +nav_item("/browse?filr=cars") Cars
                 +nav_item("/browse?filr=books") Books
                 +nav_item("/browse?filr=electronics") Electronics
+                +nav_item("/browse?filr=toys") Toys
+                +nav_item("/browse?filr=art") Art
+                +nav_item("/browse?filr=furniture") Furniture
+                +nav_item("/browse?filr=stationary") stationary
             +a-btn-danger("/purchases")
                 +icon('shopping-cart')
             +nav_item("/") Log Out
@@ -41,6 +45,8 @@ block body
                                     img(src='images/#{val.imagepath}', width='163', height='187')
                             td
                                 p These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
+                                a(href='/itemPage?name=#{val.itemname}&image=#{val.imagepath}&price=#{val.price}&description=#{val.description}&tag=#{val.tag}') View Items Listing Page
+
 
                             td
                                 button.btn.btn-default(type='button', onclick="location.href='/edit?filr=#{val.sid}'") Edit
@@ -52,6 +58,7 @@ block body
                                 img(src='images/noimage.jpg')
                             td
                                 p These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
+                                a(href='/itemPage?name=#{val.itemname}?image=#{val.imagepath}?price=#{val.price}?description=#{val.description}?tag=#{val.tag}') View Items Listing Page
 
                             td
                                 button.btn.btn-default(type='button', onclick="location.href='/buy?filr=#{val.sid}'") Buy
