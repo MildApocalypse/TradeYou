@@ -16,10 +16,7 @@ router.get('/', function(req,res) {
             return;
         }
         console.log('Connected to database');
-        console.log(req.query.txtEdit);
-        console.log(req.query.ls);
-        //Check the data in table
-        client.query("SELECT * FROM Listing WHERE sid=96;", function(error,result){
+        client.query("SELECT * FROM Listing ORDER BY Sid DESC LIMIT 1;", function(error,result){
             if (error) {
                 console.error('Failed to execute query');
                 console.error(error);
@@ -30,9 +27,6 @@ router.get('/', function(req,res) {
                 result.rows[0].height, result.rows[0].weight, result.rows[0].address1, result.rows[0].address2,
                 result.rows[0].city, result.rows[0].suburb, result.rows[0].email, result.rows[0].phonenum,
                 result.rows[0].description];
-            // for (i =0; i < result.rows.length; i++){
-            // console.log(listings[i]);
-            // }
             done();
             res.render('itemPage', {item: arr});
             });
