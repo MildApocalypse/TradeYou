@@ -1,10 +1,13 @@
-extends ../node_modules/jade-bootstrap/_bootstrap
-append styles
-    link(rel = "stylesheet", href = "/stylesheets/browse.css")
+//Created by bucklawr on 14/05/16.
 
+extends ../node_modules/jade-bootstrap/_bootstrap
+
+
+append styles
+    link(rel = "stylesheet", href = "/stylesheets/indexStyle.css")
 
 block body
-    .dropdownlist
+    .dropdownlist-userListings
         +navbar("TradeYou","dropdown_menu")
             +nav_item("/loginWelcome") Home
             +nav_item("/browse") Browse
@@ -22,23 +25,26 @@ block body
             +a-btn-danger("/purchases")
                 +icon('shopping-cart')
             +nav_item("/") Log Out
+
     .anotherone
         .jumbotron
             center
-                h1.browseTitle Purchases
-
+                h1.userTitle Your Current Listings
+                
     .container
-        p &nbsp
-        p Here are your recent purchases:
         center
+        p &nbsp
             table
                 each val in Arrays
                         tr
                             td
                                 img(src='images/noimage.jpg')
                             td
-                                p #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
+                                p These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
                                 a(href='/itemPage?name=#{val.itemname}&image=#{val.imagepath}&price=#{val.price}&description=#{val.description}&tag=#{val.tag}') View Items Listing Page
 
-        p &nbsp
 
+                            td
+                                button.btn.btn-default(type='button', onclick="location.href='/cancel?filr=#{val.sid}'") Cancel
+
+        p &nbsp
