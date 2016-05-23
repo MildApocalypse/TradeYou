@@ -14,7 +14,6 @@ router.get('/', function (req,res) {
 });
 
 router.post('/*', multer({ dest : './uploads/'}).single('filename'), function(req,res){
-    //console.log(req.query.File);
     var tmp_path = req.file.path;
     var target_path = './public/images/' + req.file.originalname;
 
@@ -25,7 +24,12 @@ router.post('/*', multer({ dest : './uploads/'}).single('filename'), function(re
                                 + req.file.originalname})
     });
     src.on('error', function(err) { res.sendStatus(500); });
-})
+});
+
+router.get('/*', function (req,res){
+    
+    res.redirect('/itemPage');
+});
 
 
 module.exports = router;

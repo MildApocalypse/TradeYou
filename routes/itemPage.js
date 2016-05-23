@@ -36,7 +36,8 @@ router.get('/*', function(req,res) {
     //         res.render('itemPage', {imagePlaced: false})
     //         });
     //     });
-
+    //
+    res.render('itemPage', {imagePlaced: false})
 });
 
 module.exports = router;
