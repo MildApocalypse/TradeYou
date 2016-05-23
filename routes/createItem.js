@@ -10,7 +10,7 @@ var upload = multer({ dest: 'upload/' })
 var fs = require('fs');
 
 router.get('/', function (req,res) {
-    res.render('createItem', {imagePlaced: false});
+    res.render('createItem', {imagePlaced: false,    uid:req.query.Uid});
 });
 
 router.post('/', multer({ dest : './uploads/'}).single('filename'), function(req,res){
@@ -21,7 +21,7 @@ router.post('/', multer({ dest : './uploads/'}).single('filename'), function(req
     var dest = fs.createWriteStream(target_path);
     src.pipe(dest);
     src.on('end', function() { res.render('createItem', {imagePlaced: true, im: "/images/"
-                                + req.file.originalname})
+                                + req.file.originalname, uid:req.query.Uid})
     });
     src.on('error', function(err) { res.sendStatus(500); });
 });
@@ -43,7 +43,8 @@ router.get('/redirect', function (req,res){
     var email = req.query.em;
     var phoneNum = req.query.phoneNum;
     var uid = req.query.Uid;
-
+    console.log("This is create item uid"+uid);
+    
     if(file == "") {file = "none"}
     if(title == "") {title = "none"}
     if(price == "") {price = -1}
@@ -100,7 +101,8 @@ router.get('/redirect', function (req,res){
             }
         });
     });
-    res.redirect('/itemPage?Uid='+Uid);
+
+    res.redirect('/itemPage?Uid='+uid);
 });
 
 
