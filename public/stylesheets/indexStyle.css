@@ -27,9 +27,8 @@ nav #login{
     border-right:  1px solid #ddd;
     box-shadow: 1px 0 0 #fff;
 }
+nav .btn.btn-danger{
 
-nav #cartIcon{
-    padding-top: 8px;
 }
 
 nav #login-trigger{
