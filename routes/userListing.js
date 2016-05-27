@@ -22,7 +22,7 @@ router.get('/', function(req,res,next) {
         }
         console.log('Connected to database');
             //Check the data in table
-            client.query("SELECT * FROM Listing WHERE tag = '"+tagFilter+"';", function(error,result){
+            client.query("SELECT * FROM Listing WHERE tag = '"+tagFilter+"' AND uid = '"+userid+";", function(error,result){
             if (error) {
                 console.error('Failed to execute query');
                 console.error(error);
@@ -58,7 +58,7 @@ router.get('/', function(req,res,next) {
         }
         console.log('Connected to database');
             //Check the data in table
-            client.query("SELECT * FROM Listing WHERE tag = '"+tagFilter+"';", function(error,result){
+            client.query("SELECT * FROM Listing WHERE tag = '"+tagFilter+"' AND uid = '"+userid+";", function(error,result){
             if (error) {
                 console.error('Failed to execute query');
                 console.error(error);
@@ -94,7 +94,7 @@ router.get('/', function(req,res,next) {
         }
         console.log('Connected to database');
             //Check the data in table
-            client.query("SELECT * FROM Listing WHERE tag = '"+tagFilter+"';", function(error,result){
+            client.query("SELECT * FROM Listing WHERE tag = '"+tagFilter+"' AND uid = '"+userid+";", function(error,result){
             if (error) {
                 console.error('Failed to execute query');
                 console.error(error);
@@ -130,7 +130,7 @@ router.get('/', function(req,res,next) {
             }
             console.log('Connected to database');
             //Check the data in table
-            client.query("SELECT * FROM Listing WHERE tag = '"+tagFilter+"';", function(error,result){
+            client.query("SELECT * FROM Listing WHERE tag = '"+tagFilter+"' AND uid = '"+userid+";", function(error,result){
                 if (error) {
                     console.error('Failed to execute query');
                     console.error(error);
@@ -166,7 +166,7 @@ router.get('/', function(req,res,next) {
             }
             console.log('Connected to database');
             //Check the data in table
-            client.query("SELECT * FROM Listing WHERE tag = '"+tagFilter+"';", function(error,result){
+            client.query("SELECT * FROM Listing WHERE tag = '"+tagFilter+"' AND uid = '"+userid+";", function(error,result){
                 if (error) {
                     console.error('Failed to execute query');
                     console.error(error);
@@ -202,7 +202,7 @@ router.get('/', function(req,res,next) {
             }
             console.log('Connected to database');
             //Check the data in table
-            client.query("SELECT * FROM Listing WHERE tag = '"+tagFilter+"';", function(error,result){
+            client.query("SELECT * FROM Listing WHERE tag = '"+tagFilter+"' AND uid = '"+userid+";", function(error,result){
                 if (error) {
                     console.error('Failed to execute query');
                     console.error(error);
@@ -238,7 +238,7 @@ router.get('/', function(req,res,next) {
             }
             console.log('Connected to database');
             //Check the data in table
-            client.query("SELECT * FROM Listing WHERE tag = '"+tagFilter+"';", function(error,result){
+            client.query("SELECT * FROM Listing WHERE tag = '"+tagFilter+"' AND uid = '"+userid+";", function(error,result){
                 if (error) {
                     console.error('Failed to execute query');
                     console.error(error);
@@ -273,7 +273,7 @@ router.get('/', function(req,res,next) {
         }
         console.log('Connected to database');
             //Check the data in table
-            client.query("SELECT * FROM Listing;", function(error,result){
+            client.query("SELECT * FROM Listing WHERE uid = '"+userid+"';", function(error,result){
             if (error) {
                 console.error('Failed to execute query');
                 console.error(error);
