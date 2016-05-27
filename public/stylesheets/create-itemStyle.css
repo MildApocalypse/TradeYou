@@ -5,6 +5,11 @@ body{
 h1 {
     color: #B7B6B6;
 }
+h1.createTitle{
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
 .container{
     text-align: center;
 }
@@ -38,6 +43,104 @@ h1 {
     width: 500px;
     height: 500px;
 }
+
 #uplbtn{
     float: left
+}
+
+a.btn.btn-danger{
+    margin-top: 8px;
+}
+
+a {
+    color: #B7B6B6
+}
+
+#descBox {
+    float: left;
+    margin: 10px;
+    background-color: #6F6F6F;
+    width: 600px;
+    height: 120px;
+    border: 3px solid #cccccc;
+    padding: 5px;
+    font-family: Tahoma, sans-serif;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    color: #B7B6B6;
+}
+
+#saveBtn{
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#line{
+    margin-top: 120px;
+    height: 1px;
+    width: 100%;
+    background-color: #B7B6B6;
+}
+
+#toolTip{
+    color: #B7B6B6;
+    float: left;
+    margin: 8px 10px 0 0;
+}
+
+#tags{
+    float:left;
+}
+
+#measurements{
+    float: left;
+}
+
+#measurements p{
+    float: left;
+    color: #B7B6B6;
+    margin: 6px 10px 0 0;
+}
+
+#long, #height, #weight, #addr1, #addr2,
+#telephone, #city, #suburb, #email{
+    float: left;
+    background-color: #6F6F6F;
+    border: 3px solid #cccccc;
+    font-family: Tahoma, sans-serif;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    color: #B7B6B6;
+}
+
+#height, #weight{
+    margin-left: 3px;
+}
+
+.btn.btn-primary{
+    background-color: #6F6F6F;
+    border-color: transparent;
+}
+
+#address{
+    float: left;
+}
+
+#contact {
+    float: right;
+}
+
+#pricetag, #quanNum{
+    width: 30%;
+    background-color: #6F6F6F;
+    border-color: #B7B6B6;
+}
+
+#sizing-addon2, #sizing-addon3{
+    background-color: #B7B6B6;
+}
+
+#price, #quantity{
+    margin: 10px;
 }

@@ -1,4 +1,4 @@
-var pg=require('pg').native;
+var pg=require('pg');
 var database = "postgres://bahilmyqemykri:iKowEPn0umVbHXossXNsu_abmX@ec2-54-235-119-42.compute-1.amazonaws.com:5432/d6ap3ia4rlhq77";
 var express = require('express');
 var router = express.Router(); 
@@ -16,7 +16,7 @@ router.get('/', function(req, res) {
     }
     console.log('Connected to database');
       //Check the data in table
-      var uid = 1; //temporarily, this should be current user's uid
+      var uid = req.query.Uid; //temporarily, this should be current user's uid
       //console.log(sid);
       client.query("SELECT * FROM Buy WHERE uid = '"+uid+"' ", function(error,result){
       if (error) {
@@ -35,8 +35,8 @@ router.get('/', function(req, res) {
 
         res.render('purchases', {
 
-          Arrays:listings
-          
+          Arrays:listings,
+          uid:uid
         });
       done();
     });

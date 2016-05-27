@@ -7,19 +7,50 @@ append styles
 block body
     .dropdownlist
         +navbar("TradeYou","dropdown_menu")
-            +nav_item("/loginWelcome") Home
-            +nav_item("/browse") Browse
+            a.navbar-brand(href="/loginWelcome?Uid=#{uid}") Home
+            a.navbar-brand(href="/browse?Uid=#{uid}") Browse
             +nav_item_dropdown("#")(label="Sell")
-                +nav_item("/createItem") Create Listing
-                +nav_item("#") Current Listings
+                a.navbar-brand(href="/createItem?Uid=#{uid}") Create Listing
+                a.navbar-brand(href="/userListing?Uid=#{uid}") Current Listings
             +nav_item_dropdown("#")(label="Catagories")
-                +nav_item("/browse?filr=cars") Cars
-                +nav_item("/browse?filr=books") Books
-                +nav_item("/browse?filr=electronics") Electronics
-                +nav_divider
-                +nav_header Specials
-                +nav_item("#") Daily Deals
-                +nav_item("#") Clearance
-            +nav_item("/index") Log Out
-    .container
-        h1 TradeYou
+                a.navbar-brand(href="/browse?filr=cars&Uid=#{uid}") Cars
+                a.navbar-brand(href="/browse?filr=books&Uid=#{uid}") Books
+                a.navbar-brand(href="/browse?filr=electronics&Uid=#{uid}") Electronics
+                a.navbar-brand(href="/browse?filr=toys&Uid=#{uid}") Toys
+                a.navbar-brand(href="/browse?filr=art&Uid=#{uid}") Art
+                a.navbar-brand(href="/browse?filr=furniture&Uid=#{uid}") Furniture
+                a.navbar-brand(href="/browse?filr=stationary&Uid=#{uid}") stationary
+            a.btn-danger(href="/purchases?Uid=#{uid}", padding=0)
+                +icon('shopping-cart')
+            +nav_item("/") Log Out
+
+        p &nbsp
+        center
+            h1.welcome Welcome to TradeYou!
+        p &nbsp
+        center
+            #myCarousel.carousel.slide(data-ride='carousel')
+                // Indicators
+                ol.carousel-indicators
+                    li.active(data-target='#myCarousel', data-slide-to='0')
+                    li(data-target='#myCarousel', data-slide-to='1')
+                    li(data-target='#myCarousel', data-slide-to='2')
+                    li(data-target='#myCarousel', data-slide-to='3')
+                // Wrapper for slides
+                .carousel-inner(role='listbox')
+                    .item.active
+                        img(src='images/BookBanner.png')
+                    .item
+                        img(src='images/CarBanner.png')
+                    .item
+                        img(src='images/ElecBanner.png')
+                    .item
+                        img(src='images/ArtBanner.png')
+                // Left and right controls
+                a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
+                    span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+                    span.sr-only Previous
+                a.right.carousel-control(href='#myCarousel', role='button', data-slide='next')
+                    span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+                    span.sr-only Next
+        p &nbsp

@@ -4,18 +4,18 @@ append styles
     link(rel = "stylesheet", href = "/stylesheets/indexStyle.css")
 
 block body
-  .dropdownlist
+  .dropdownlist-login
     +navbar(title,"dropdown_menu")
-        +nav_item("/index") Home
-        +nav_item("/browse") Browse
-        +nav_item_dropdown("#")(label="Catagories")
-            +nav_item("/browse?filr=cars") Cars
-            +nav_item("/browse?filr=books") Books
-            +nav_item("/browse?filr=electronics") Electronics
-            +nav_divider
-            +nav_header Specials
-            +nav_item("#") Daily Deals
-            +nav_item("#") Clearance  
+        +nav_item("/") Home
+        //+nav_item("/browse") Browse
+        //+nav_item_dropdown("#")(label="Catagories")
+        //    +nav_item("/browse?filr=cars") Cars
+        //    +nav_item("/browse?filr=books") Books
+        //    +nav_item("/browse?filr=electronics") Electronics
+        //    +nav_item("/browse?filr=toys") Toys
+        //    +nav_item("/browse?filr=art") Art
+        //    +nav_item("/browse?filr=furniture") Furniture
+        //    +nav_item("/browse?filr=stationary") stationary
         +nav_item_dropdown("#")(label="Login")
             li(id='login')
                 a(id='login-trigger', href='#', class='active') Login
@@ -29,6 +29,8 @@ block body
 
 
 
-  .container
-      h1 TradeYou
+  .imageContainer
+      center
+        img(src="../public/stylesheets/Logo2.png" class="logo")
+
 

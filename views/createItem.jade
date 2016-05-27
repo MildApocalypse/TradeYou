@@ -6,19 +6,25 @@ append styles
 block body
     .dropdownlist
         +navbar("TradeYou","dropdown_menu")
-            +nav_item("/loginWelcome") Home
-            +nav_item("/browse") Browse
-                span
+            a.navbar-brand(href="/loginWelcome?Uid=#{uid}") Home
+            a.navbar-brand(href="/browse?Uid=#{uid}") Browse
             +nav_item_dropdown("#")(label="Sell")
-                +nav_item("/createItem") Create Listing
-                +nav_item("#") Current Listings
+                a.navbar-brand(href="/createItem?Uid=#{uid}") Create Listing
+                a.navbar-brand(href="/userListing?Uid=#{uid}") Current Listings
             +nav_item_dropdown("#")(label="Catagories")
-                +nav_item("/browse?filr=cars") Cars
-                +nav_item("/browse?filr=books") Books
-                +nav_item("/browse?filr=electronics") Electronics
+                a.navbar-brand(href="/browse?filr=cars&Uid=#{uid}") Cars
+                a.navbar-brand(href="/browse?filr=books&Uid=#{uid}") Books
+                a.navbar-brand(href="/browse?filr=electronics&Uid=#{uid}") Electronics
+                a.navbar-brand(href="/browse?filr=toys&Uid=#{uid}") Toys
+                a.navbar-brand(href="/browse?filr=art&Uid=#{uid}") Art
+                a.navbar-brand(href="/browse?filr=furniture&Uid=#{uid}") Furniture
+                a.navbar-brand(href="/browse?filr=stationary&Uid=#{uid}") stationary
+            a.btn-danger(href="/purchases?Uid=#{uid}", padding=0)
+                +icon('shopping-cart')
+            +nav_item("/") Log Out
 
     .container
-        h1 Create new Item
+        h1.createTitle Create new Item
         div(id="addImage" class="crop")
             -if(imagePlaced==false) {
                 div(id="placeholder")
@@ -28,7 +34,7 @@ block body
             -else{
                 img(src=im)
             -}
-
+        br
         form(action='/createItem', method='post', enctype="multipart/form-data")
             input(id="fileBrowser" type="file" name="filename" accept="image/gif, image/jpg, image/png")
             input(id="uplbtn" type="submit" class="btn btn-default" value="Upload")
@@ -36,33 +42,80 @@ block body
             br
             br
 
-        form(action='/itemPage', method='get')
+        form(action='/createItem/redirect', method='get')
 
             div(class='input-group input-group-lg')
                 span(class='input-group-addon' id ='sizing-addon1') Title
-                input(type='text', id='titleInput' name='Title', class='form-control',
+                input(type='text', id='titleInput' name='title', class='form-control',
                 Placeholder='Please type in a name for your item here.', aria-describedby='sizing-addon1')
-                br
-            div(class='input-group input-group-lg')
-                span(class='input-group-addon' id ='sizing-addon2') Price
-                input(type='text', id='price' name='price', class='form-control',
-                Placeholder='Please type in the price of your item here.', aria-describedby='sizing-addon2')
-                br
-            div(class='input-group input-group-lg')
-                span(class='input-group-addon' id ='sizing-addon3') Description
-                input(type='text', id='description' name='description', class='form-control',
-                Placeholder='Please type a short description of your item here.', aria-describedby='sizing-addon3')
-                br
-            .btn-group(data-toggle='buttons')
-                label.btn.btn-primary
-                    input(type='radio',name='tag',autocomplete='off',value='cars')
-                    | Cars
-                label.btn.btn-primary
-                    input(type='radio',name='tag',autocomplete='off',value='books')
-                    | Books
-                label.btn.btn-primary
-                    input(type='radio',name='tag',autocomplete='off',value='electronics')
-                    | Electronics
+            div(id="details")
+                div(class="input-group", id="price")
+                    span( class="input-group-addon" id="sizing-addon2") $
+                    input(name="price" type="text" id="pricetag" class="form-control" placeholder="Price")
+
+                div(class="input-group", id="quantity")
+                    span(class="input-group-addon" id="sizing-addon3")
+                    input(name="quan" type="text" id="quanNum" class="form-control" placeholder="Quantity")
+
             br
-            input(type='submit' class='btn btn-default', value='Save')
-            input(type="hidden" name="File" value=im)
+            +tab-list(["Description", "Statistics", "Contact"],0, id="descriptionTabs")
+                +tab("Description", "active")
+                    textarea(name="txtEdit", id="descBox")
+                +tab("Statistics")
+                    br
+                    div(id="tags")
+                        .btn-group(data-toggle='buttons')
+                            p(id="toolTip") Tags:
+                            label.btn.btn-primary
+                                input(type='radio',name='tag',autocomplete='off',value='cars')
+                                | Cars
+                            label.btn.btn-primary
+                                input(type='radio',name='tag',autocomplete='off',value='books')
+                                | Books
+                            label.btn.btn-primary
+                                input(type='radio',name='tag',autocomplete='off',value='electronics')
+                                | Electronics
+                            label.btn.btn-primary
+                                input(type='radio',name='tag',autocomplete='off',value='toys')
+                                | Toys
+                            label.btn.btn-primary
+                                input(type='radio',name='tag',autocomplete='off',value='art')
+                                | Art
+                            label.btn.btn-primary
+                                input(type='radio',name='tag',autocomplete='off',value='furniture')
+                                | Furniture
+                            label.btn.btn-primary
+                                input(type='radio',name='tag',autocomplete='off',value='stationery')
+                                | Stationery
+                    br
+                    br
+                    div(id="measurements")
+                        p Measurements:
+                        input(name="ls" type="number" id="long" placeholder="longest side(cm)")
+                        input(name="h" type="number" id="height" placeholder="height(cm)")
+                        input(name="w" type="number" id="weight" placeholder="weight(kg)")
+                +tab("Contact")
+                    div(id="address")
+                        input(name="a1" type="text" id="addr1" placeholder="address")
+                        br
+                        br
+                        input(name="a2" type="text" id="addr2" placeholder="address line 2")
+                        br
+                        br
+                        input(name="cit" type="text" id="city" placeholder="city")
+                        br
+                        br
+                        input(name="sub" type="text" id="suburb" placeholder="suburb")
+                    div(id="contact")
+                        input(name="em" type="email" id="email" placeholder="email")
+                        br
+                        br
+                        input(name="phoneNum" type="tel" id="telephone" placeholder="telephone")
+            br
+            br
+            div(id="line")
+            input(type='submit' class='btn btn-default', value='Save' id="saveBtn")
+            input(type='hidden' name='file' value=im)
+            input(type='hidden' name='Uid' value=uid)
+            br
+            br

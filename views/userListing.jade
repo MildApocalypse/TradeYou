@@ -1,7 +1,10 @@
+//Created by bucklawr on 14/05/16.
+
 extends ../node_modules/jade-bootstrap/_bootstrap
+
+
 append styles
     link(rel = "stylesheet", href = "/stylesheets/browse.css")
-
 
 block body
     .dropdownlist
@@ -22,16 +25,16 @@ block body
             a.btn-danger(href="/purchases?Uid=#{uid}", padding=0)
                 +icon('shopping-cart')
             +nav_item("/") Log Out
+
     .anotherone
         .jumbotron
             center
-                //h1.browseTitle Purchases
-                img(src="../public/images/PurchBanner.png")
-
+                //h1.userTitle Your Current Listings
+                img(src="../public/images/ListingBanner.png")
+                
     .container
-        p &nbsp
-        p Here are your recent purchases:
         center
+        p &nbsp
             table
                 each val in Arrays
                         tr
@@ -41,8 +44,11 @@ block body
                                 else
                                     img(src='images/#{val.imagepath}', width='163', height='187')
                             td
-                                p #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
-                                a(href='/itemPage?name=#{val.itemname}&image=#{val.imagepath}&price=#{val.price}&description=#{val.description}&tag=#{val.tag}') View Items Listing Page
+                                p These are the items #{val.itemname} #{val.imagepath} #{val.price} #{val.description} #{val.tag}
+                                a(href='/itemPage?name=#{val.itemname}&image=#{val.imagepath}&price=#{val.price}&description=#{val.description}&tag=#{val.tag}&Uid=#{uid}') View Items Listing Page
+
+
+                            td
+                                button.btn.btn-default(type='button', onclick="location.href='/cancel?filr=#{val.sid}&Uid=#{uid}'") Cancel
 
         p &nbsp
-

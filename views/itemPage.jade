@@ -2,44 +2,123 @@
    Created by steve on 21/05/2016.
 
 extends ../node_modules/jade-bootstrap/_bootstrap
-
 append styles
     link(rel = "stylesheet", href = "/stylesheets/itemPageStyle.css")
 
 block body
     .dropdownlist
         +navbar("TradeYou","dropdown_menu")
-            +nav_item("/loginWelcome") Home
-            +nav_item("/browse") Browse
+            a.navbar-brand(href="/loginWelcome?Uid=#{uid}") Home
+            a.navbar-brand(href="/browse?Uid=#{uid}") Browse
             +nav_item_dropdown("#")(label="Sell")
-                +nav_item("/createItem") Create Listing
-                +nav_item("#") Current Listings
+                a.navbar-brand(href="/createItem?Uid=#{uid}") Create Listing
+                a.navbar-brand(href="/userListing?Uid=#{uid}") Current Listings
             +nav_item_dropdown("#")(label="Catagories")
-                +nav_item("/browse?filr=cars") Cars
-                +nav_item("/browse?filr=books") Books
-                +nav_item("/browse?filr=electronics") Electronics
+                a.navbar-brand(href="/browse?filr=cars&Uid=#{uid}") Cars
+                a.navbar-brand(href="/browse?filr=books&Uid=#{uid}") Books
+                a.navbar-brand(href="/browse?filr=electronics&Uid=#{uid}") Electronics
+                a.navbar-brand(href="/browse?filr=toys&Uid=#{uid}") Toys
+                a.navbar-brand(href="/browse?filr=art&Uid=#{uid}") Art
+                a.navbar-brand(href="/browse?filr=furniture&Uid=#{uid}") Furniture
+                a.navbar-brand(href="/browse?filr=stationary&Uid=#{uid}") stationary
+            a.btn-danger(href="/purchases?Uid=#{uid}", padding=0)
+                +icon('shopping-cart')
+            +nav_item("/") Log Out
 
     .container
-        h1(id="title") !{Title}
-
-        div(id="imageView")
-            -if(imagePlaced == false){
+        -if(item[2] == "none"){
+           h1 Untitled Item
+        -}
+        -else{
+            h1(id="title") !{item[2]}
+        -}
+        div(id="imageView" class="crop")
+            -if(item[1] == "none"){
                 div(id="placeholder")
                     +icon("unchecked")
                     p No image uploaded
             -}
             -else{
-                img(src=im)
+                img(src=item[1])
             -}
-
         br
         +tab-list(["Description", "Statistics", "Contact"],0, id="descriptionTabs")
             +tab("Description", "active")
-                h1 Description
-                p this is the description tab
+                br
+                div(id="descBox")
+                    -if(item[16] == "none") {
+                        p No Description available.
+                    -}
+                    -else {
+                        p !{item[16]}
+                    -}
             +tab("Statistics")
-                h1 Statistics
-                p this is the statistics tab
+                br
+                div(id="tagLine")
+                    p Tag:
+                    div(id="tag")
+                        -if(item[4] == "none"){
+                            p No tag given.
+                        -}
+                        -else{
+                            p !{item[4]}
+                        -}
+                br
+                br
+                div(id="measurements")
+                    p Measurements:
+                    -if(item[7] == -1 && item[8] == -1 && item[9] == -1){
+                        p No measurements given.
+                    -}
+                    div(id="long")
+                        -if(item[7] != -1){
+                            p Longest side: !{item[7]}cm
+                        -}
+                    div(id="height")
+                        -if(item[8] != -1){
+                            p Height: !{item[8]}cm
+                        -}
+                    div(id="weight")
+                        -if(item[9] != -1){
+                            p Weight: !{item[9]}kg
+                        -}
             +tab("Contact")
-                h1 Contact
-                p this is the contact tab
+                -if(item[10] == "none" && item[11] == "none" && item[12] == "none" && item[13] == "none" && item[14] == "none" && item[15] == -1){
+                    p No details given
+                -}
+                -else{
+                    div(id="address")
+                        br
+                        div(id="addr1")
+                            -if(item[10] != "none"){
+                                p Address: !{item[10]}
+                            -}
+                        div(id="addr2")
+                            -if(item[11] != "none"){
+                                p !{item[11]}
+                            -}
+                        div(id="city")
+                            -if(item[12] != "none"){
+                                p City: !{item[12]}
+                            -}
+                        div(id="suburb")
+                            -if(item[13] != "none"){
+                                p Suburb: !{item[13]}
+                            -}
+                        br
+                        br
+                    div(id="contact")
+                        div(id="email")
+                                -if(item[14] != "none"){
+                                p email: !{item[14]}
+                            -}
+                        div(id="telephone")
+                            -if(item[15] != -1){
+                                p Phone: !{item[15]}
+                            -}
+                -}
+        br
+        br
+        div(id="line")
+        br
+        br
